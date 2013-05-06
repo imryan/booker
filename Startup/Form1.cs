@@ -17,14 +17,11 @@ namespace Booker
         public mainForm()
         {
             InitializeComponent();
-
-            // Initialize Parse
             ParseClient.Initialize("JIn62aA3iMD5IReUkuRx5Q4tGXQC6nfiVfrqKJBT", "GO9h3Apu14nh6aRyYYxGfMUANwyDtYQ4mm9wgQMO");
         }
 
         private void mainForm_Load(object sender, EventArgs e)
         {
-            // When the main form is loaded
             usernameLogin.Focus();
         }
 
@@ -37,13 +34,10 @@ namespace Booker
             }
             else
             {
-
                 var user = new ParseUser()
                 {
-
                     Username = usernameCreate.Text,
                     Password = passwordCreate.Text
-
                 };
 
                 try

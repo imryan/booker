@@ -116,11 +116,6 @@ namespace Booker
 
             IEnumerable<ParseObject> results = await query.FindAsync();
 
-            foreach (var obj in results)
-            {
-                 obj.
-            }
-
             foreach (ListViewItem item in listView.SelectedItems)
             {
                 listView.Items.Remove(item);
