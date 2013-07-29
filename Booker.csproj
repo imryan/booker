@@ -40,13 +40,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <HintPath>packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Parse">
-      <HintPath>..\packages\parse.1.2.1\lib\net45\Parse.dll</HintPath>
+      <HintPath>packages\parse.1.2.5\lib\net45\Parse.dll</HintPath>
     </Reference>
     <Reference Include="Parse.NetFx45">
-      <HintPath>..\packages\parse.1.2.1\lib\net45\Parse.NetFx45.dll</HintPath>
+      <HintPath>packages\parse.1.2.5\lib\net45\Parse.NetFx45.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -74,11 +74,11 @@
     <Compile Include="Booker\Booker.Designer.cs">
       <DependentUpon>Booker.cs</DependentUpon>
     </Compile>
-    <Compile Include="Startup\Form1.cs">
+    <Compile Include="Startup\Startup.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Startup\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Startup\Startup.Designer.cs">
+      <DependentUpon>Startup.cs</DependentUpon>
     </Compile>
     <Compile Include="New Booking\NewBookingForm.cs">
       <SubType>Form</SubType>
@@ -94,8 +94,8 @@
     <EmbeddedResource Include="Booker\Booker.resx">
       <DependentUpon>Booker.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Startup\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Startup\Startup.resx">
+      <DependentUpon>Startup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="New Booking\NewBookingForm.resx">
       <DependentUpon>NewBookingForm.cs</DependentUpon>
