@@ -36,13 +36,9 @@
             this.timeHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.personHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.expanders = new System.Windows.Forms.ImageList(this.components);
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.newBookingButton = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutButton = new System.Windows.Forms.ToolStripMenuItem();
             this.newBooking = new System.Windows.Forms.Button();
             this.deleteBooking = new System.Windows.Forms.Button();
-            this.menuStrip1.SuspendLayout();
+            this.aboutButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listView
@@ -54,10 +50,12 @@
             this.personHeader});
             this.listView.FullRowSelect = true;
             this.listView.GridLines = true;
-            this.listView.Location = new System.Drawing.Point(205, 41);
+            this.listView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.listView.Location = new System.Drawing.Point(12, 38);
+            this.listView.MultiSelect = false;
             this.listView.Name = "listView";
             this.listView.ShowItemToolTips = true;
-            this.listView.Size = new System.Drawing.Size(404, 402);
+            this.listView.Size = new System.Drawing.Size(660, 371);
             this.listView.StateImageList = this.expanders;
             this.listView.TabIndex = 0;
             this.listView.UseCompatibleStateImageBehavior = false;
@@ -65,22 +63,22 @@
             // roomHeader
             // 
             this.roomHeader.Text = "Room";
-            this.roomHeader.Width = 100;
+            this.roomHeader.Width = 150;
             // 
             // dateHeader
             // 
             this.dateHeader.Text = "Date";
-            this.dateHeader.Width = 100;
+            this.dateHeader.Width = 150;
             // 
             // timeHeader
             // 
             this.timeHeader.Text = "Time";
-            this.timeHeader.Width = 100;
+            this.timeHeader.Width = 150;
             // 
             // personHeader
             // 
             this.personHeader.Text = "Person";
-            this.personHeader.Width = 100;
+            this.personHeader.Width = 143;
             // 
             // expanders
             // 
@@ -88,80 +86,50 @@
             this.expanders.TransparentColor = System.Drawing.Color.Transparent;
             this.expanders.Images.SetKeyName(0, "calendar.png.png");
             // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(621, 24);
-            this.menuStrip1.TabIndex = 1;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newBookingButton,
-            this.aboutButton});
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(37, 20);
-            this.toolStripMenuItem1.Text = "File";
-            // 
-            // newBookingButton
-            // 
-            this.newBookingButton.Name = "newBookingButton";
-            this.newBookingButton.Size = new System.Drawing.Size(145, 22);
-            this.newBookingButton.Text = "New Booking";
-            this.newBookingButton.Click += new System.EventHandler(this.newBookingButton_Click);
-            // 
-            // aboutButton
-            // 
-            this.aboutButton.Name = "aboutButton";
-            this.aboutButton.Size = new System.Drawing.Size(145, 22);
-            this.aboutButton.Text = "About";
-            this.aboutButton.Click += new System.EventHandler(this.aboutButton_Click);
-            // 
             // newBooking
             // 
-            this.newBooking.Location = new System.Drawing.Point(12, 41);
+            this.newBooking.Location = new System.Drawing.Point(110, 8);
             this.newBooking.Name = "newBooking";
-            this.newBooking.Size = new System.Drawing.Size(169, 34);
+            this.newBooking.Size = new System.Drawing.Size(160, 24);
             this.newBooking.TabIndex = 2;
             this.newBooking.Text = "New Booking";
             this.newBooking.UseVisualStyleBackColor = true;
-            this.newBooking.Click += new System.EventHandler(this.newBooking_Click);
             // 
             // deleteBooking
             // 
-            this.deleteBooking.Location = new System.Drawing.Point(12, 81);
+            this.deleteBooking.Location = new System.Drawing.Point(276, 8);
             this.deleteBooking.Name = "deleteBooking";
-            this.deleteBooking.Size = new System.Drawing.Size(169, 34);
+            this.deleteBooking.Size = new System.Drawing.Size(160, 24);
             this.deleteBooking.TabIndex = 3;
             this.deleteBooking.Text = "Delete Booking";
             this.deleteBooking.UseVisualStyleBackColor = true;
-            this.deleteBooking.Click += new System.EventHandler(this.deleteBooking_Click);
+            // 
+            // aboutButton
+            // 
+            this.aboutButton.Location = new System.Drawing.Point(442, 8);
+            this.aboutButton.Name = "aboutButton";
+            this.aboutButton.Size = new System.Drawing.Size(160, 24);
+            this.aboutButton.TabIndex = 5;
+            this.aboutButton.Text = "About";
+            this.aboutButton.UseVisualStyleBackColor = true;
             // 
             // Booker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(621, 455);
+            this.ClientSize = new System.Drawing.Size(684, 421);
+            this.Controls.Add(this.aboutButton);
             this.Controls.Add(this.deleteBooking);
             this.Controls.Add(this.newBooking);
             this.Controls.Add(this.listView);
-            this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "Booker";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Booker";
             this.Load += new System.EventHandler(this.Booker_Load);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -171,14 +139,11 @@
         private System.Windows.Forms.ColumnHeader dateHeader;
         private System.Windows.Forms.ColumnHeader timeHeader;
         private System.Windows.Forms.ColumnHeader personHeader;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem newBookingButton;
+        public System.Windows.Forms.ListView listView;
+        private System.Windows.Forms.ImageList expanders;
         private System.Windows.Forms.Button newBooking;
         private System.Windows.Forms.Button deleteBooking;
-        public System.Windows.Forms.ListView listView;
-        private System.Windows.Forms.ToolStripMenuItem aboutButton;
-        private System.Windows.Forms.ImageList expanders;
+        private System.Windows.Forms.Button aboutButton;
 
     }
 }

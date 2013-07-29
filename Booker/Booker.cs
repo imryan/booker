@@ -19,6 +19,10 @@ namespace Booker
         public Booker()
         {
             InitializeComponent();
+
+            newBooking.Click += new EventHandler(newBooking_Click);
+            deleteBooking.Click += new EventHandler(deleteBooking_Click);
+            aboutButton.Click += new EventHandler(aboutButton_Click);
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
@@ -62,7 +66,7 @@ namespace Booker
             }
         }
 
-        private void newBookingButton_Click(object sender, EventArgs e)
+        private void newBooking_Click(object sender, EventArgs e)
         {
             /* 
              * Displays the dialog to
@@ -94,16 +98,6 @@ namespace Booker
             }
         }
 
-        private void newBooking_Click(object sender, EventArgs e)
-        {
-            /* 
-             * Displays the dialog to
-             * add a new booking
-             */
-
-            newBookingButton_Click(sender, e);
-        }
-
         private async void deleteBooking_Click(object sender, EventArgs e)
         {
             /* 
@@ -120,7 +114,6 @@ namespace Booker
             {
                 listView.Items.Remove(item);
 
-                // Remove object from Parse
             }
         }
 
