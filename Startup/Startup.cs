@@ -42,12 +42,24 @@ namespace Booker
 
                 try
                 {
+                    registerButton.Enabled = false;
                     await user.SignUpAsync();
                     MessageBox.Show("User sucessfully created.", "Alert");
+
+                    // Login the new user
+                    await ParseUser.LogInAsync(usernameCreate.Text, passwordCreate.Text);
+                    MessageBox.Show("Successfully logged in.", "Alert");
+
+                    Hide();
+                    Program.booker = new Booker();
+                    Program.booker.Show();
                 }
                 catch (Exception r)
                 {
+                    Console.WriteLine(r.Message);
+
                     MessageBox.Show("Username already in use!", "Alert");
+                    registerButton.Enabled = true;
                 }
             }
         }
@@ -74,6 +86,8 @@ namespace Booker
                 }
                 catch (Exception l)
                 {
+                    Console.WriteLine(l.Message);
+
                     MessageBox.Show("Invalid credentials, try again.", "Alert");
                     connectButton.Enabled = true;
                 }
