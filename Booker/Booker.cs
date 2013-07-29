@@ -113,7 +113,6 @@ namespace Booker
             foreach (ListViewItem item in listView.SelectedItems)
             {
                 listView.Items.Remove(item);
-
             }
         }
 
