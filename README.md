@@ -14,6 +14,7 @@ TODO
 --
 + Add multiple filtering optionsw
 + Add dropdown menu for rooms/people
++ Upcase first letter of name
 
 Versions
 ---
