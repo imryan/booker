@@ -51,7 +51,6 @@ namespace Booker
                 await booking.SaveAsync();
 
                 Dispose();
-
             }
         }
     }

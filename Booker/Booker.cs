@@ -45,28 +45,32 @@ namespace Booker
              * startup jobs to perform
              */
 
-            listView.View = View.Details;
-            listView.AllowColumnReorder = false;
-            listView.MultiSelect = true;
+            loadingBox.Visible = true;
 
-            Font ft = new Font(listView.Font.Name, 10);
-            listView.Font = ft;
+                listView.View = View.Details;
+                listView.AllowColumnReorder = false;
+                listView.MultiSelect = true;
 
-            var query = ParseObject.GetQuery("Booking")
-                                   .OrderBy("date");
+                Font ft = new Font(listView.Font.Name, 10);
+                listView.Font = ft;
 
-            IEnumerable<ParseObject> results = await query.FindAsync();
+                var query = ParseObject.GetQuery("Booking")
+                                       .OrderBy("date");
 
-            foreach (var obj in results)
-            {
-                string room   = obj.Get<string>("room");
-                string date   = obj.Get<string>("date");
-                string time   = obj.Get<string>("time");
-                string person = obj.Get<string>("person");
+                IEnumerable<ParseObject> results = await query.FindAsync();
 
-                string[] array = new string[4] { room, date, time, person };
-                UpdatingListView(array);
+                foreach (var obj in results)
+                {
+                    string room = obj.Get<string>("room");
+                    string date = obj.Get<string>("date");
+                    string time = obj.Get<string>("time");
+                    string person = obj.Get<string>("person");
+
+                    string[] array = new string[4] { room, date, time, person };
+                    UpdatingListView(array);
             }
+
+                loadingBox.Visible = false;
         }
 
         private void newBooking_Click(object sender, EventArgs e)

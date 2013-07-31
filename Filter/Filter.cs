@@ -122,5 +122,45 @@ namespace Booker
                 Dispose();
             }
         }
+
+        private void filterPerson_Click(object sender, EventArgs e)
+        {
+            // Filter by person
+
+            string person = personField.Text.ToLower();
+            int count = Program.booker.listView.Items.Count;
+            ListViewItem searchItem = null;
+            int index = 0;
+
+            if (personField.Text == "")
+            {
+                MessageBox.Show("Please enter a person.");
+            }
+            else
+            {
+                do
+                {
+                    if (index < Program.booker.listView.Items.Count)
+                    {
+                        // true = search subitems
+                        // last false param = no partial matches (remove if you want partial matches)
+                        searchItem = Program.booker.listView.FindItemWithText(person, true, index, false);
+                        if (searchItem != null)
+                        {
+                            index = searchItem.Index + 1;
+                            Program.booker.listView.MultiSelect = true;
+                            searchItem.Selected = true;
+                        }
+                    }
+                    else
+                    {
+                        searchItem = null;
+                    }
+
+                } while (searchItem != null);
+
+                Dispose();
+            }
+        }
     }
 }

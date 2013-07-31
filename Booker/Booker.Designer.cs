@@ -41,7 +41,9 @@
             this.moreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutButton = new System.Windows.Forms.ToolStripMenuItem();
             this.contactButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadingBox = new System.Windows.Forms.PictureBox();
             this.menuStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.loadingBox)).BeginInit();
             this.SuspendLayout();
             // 
             // listView
@@ -58,29 +60,30 @@
             this.listView.MultiSelect = false;
             this.listView.Name = "listView";
             this.listView.ShowItemToolTips = true;
-            this.listView.Size = new System.Drawing.Size(660, 382);
+            this.listView.Size = new System.Drawing.Size(658, 382);
             this.listView.TabIndex = 0;
             this.listView.UseCompatibleStateImageBehavior = false;
+            this.listView.View = System.Windows.Forms.View.Details;
             // 
             // roomHeader
             // 
             this.roomHeader.Text = "Room";
-            this.roomHeader.Width = 150;
+            this.roomHeader.Width = 163;
             // 
             // dateHeader
             // 
             this.dateHeader.Text = "Date";
-            this.dateHeader.Width = 150;
+            this.dateHeader.Width = 163;
             // 
             // timeHeader
             // 
             this.timeHeader.Text = "Time";
-            this.timeHeader.Width = 150;
+            this.timeHeader.Width = 163;
             // 
             // personHeader
             // 
             this.personHeader.Text = "Person";
-            this.personHeader.Width = 143;
+            this.personHeader.Width = 163;
             // 
             // menuStrip
             // 
@@ -91,7 +94,7 @@
             this.moreToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(684, 24);
+            this.menuStrip.Size = new System.Drawing.Size(682, 24);
             this.menuStrip.TabIndex = 6;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -126,20 +129,30 @@
             // aboutButton
             // 
             this.aboutButton.Name = "aboutButton";
-            this.aboutButton.Size = new System.Drawing.Size(152, 22);
+            this.aboutButton.Size = new System.Drawing.Size(116, 22);
             this.aboutButton.Text = "About";
             // 
             // contactButton
             // 
             this.contactButton.Name = "contactButton";
-            this.contactButton.Size = new System.Drawing.Size(152, 22);
+            this.contactButton.Size = new System.Drawing.Size(116, 22);
             this.contactButton.Text = "Contact";
+            // 
+            // loadingBox
+            // 
+            this.loadingBox.Image = ((System.Drawing.Image)(resources.GetObject("loadingBox.Image")));
+            this.loadingBox.Location = new System.Drawing.Point(286, 164);
+            this.loadingBox.Name = "loadingBox";
+            this.loadingBox.Size = new System.Drawing.Size(67, 66);
+            this.loadingBox.TabIndex = 7;
+            this.loadingBox.TabStop = false;
             // 
             // Booker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(684, 421);
+            this.ClientSize = new System.Drawing.Size(682, 421);
+            this.Controls.Add(this.loadingBox);
             this.Controls.Add(this.listView);
             this.Controls.Add(this.menuStrip);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -153,6 +166,7 @@
             this.Load += new System.EventHandler(this.Booker_Load);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.loadingBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -172,6 +186,7 @@
         private System.Windows.Forms.ToolStripMenuItem moreToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutButton;
         private System.Windows.Forms.ToolStripMenuItem contactButton;
+        private System.Windows.Forms.PictureBox loadingBox;
 
     }
 }

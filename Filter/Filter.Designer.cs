@@ -37,6 +37,9 @@
             this.roomField = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.timePicker = new System.Windows.Forms.DateTimePicker();
+            this.filterPerson = new System.Windows.Forms.Button();
+            this.personField = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -120,11 +123,41 @@
             this.timePicker.Size = new System.Drawing.Size(194, 20);
             this.timePicker.TabIndex = 9;
             // 
+            // filterPerson
+            // 
+            this.filterPerson.Location = new System.Drawing.Point(218, 163);
+            this.filterPerson.Name = "filterPerson";
+            this.filterPerson.Size = new System.Drawing.Size(87, 20);
+            this.filterPerson.TabIndex = 12;
+            this.filterPerson.Text = "Filter";
+            this.filterPerson.UseVisualStyleBackColor = true;
+            this.filterPerson.Click += new System.EventHandler(this.filterPerson_Click);
+            // 
+            // personField
+            // 
+            this.personField.AcceptsTab = true;
+            this.personField.Location = new System.Drawing.Point(14, 163);
+            this.personField.Name = "personField";
+            this.personField.Size = new System.Drawing.Size(195, 20);
+            this.personField.TabIndex = 11;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(12, 147);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(79, 13);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Filter by Person";
+            // 
             // Filter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(315, 312);
+            this.ClientSize = new System.Drawing.Size(315, 199);
+            this.Controls.Add(this.filterPerson);
+            this.Controls.Add(this.personField);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.timePicker);
             this.Controls.Add(this.filterRoom);
             this.Controls.Add(this.roomField);
@@ -142,6 +175,7 @@
             this.Text = "Filter";
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion
@@ -155,5 +189,8 @@
         private System.Windows.Forms.TextBox roomField;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker timePicker;
+        private System.Windows.Forms.Button filterPerson;
+        private System.Windows.Forms.TextBox personField;
+        private System.Windows.Forms.Label label4;
     }
 }
