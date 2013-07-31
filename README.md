@@ -3,6 +3,13 @@ Booker
 Simple room reservations for offices.
 Originally designed for MST in Freehold, NJ.
 
+Screenshots
+---
+
+![Main window](http://i.imgur.com/DwdvzSM.png)
+![Filter window](http://i.imgur.com/GVCJJy1.png)
+![Add new booking window](http://i.imgur.com/pFNTcf1.png)
+
 Versions
 ---
 ####Version 1.0.0
