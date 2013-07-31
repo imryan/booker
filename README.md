@@ -10,6 +10,11 @@ Screenshots
 ![Filter window](http://i.imgur.com/GVCJJy1.png)
 ![Add new booking window](http://i.imgur.com/pFNTcf1.png)
 
+TODO
+--
++ Add multiple filtering optionsw
++ Add dropdown menu for rooms/people
+
 Versions
 ---
 ####Version 1.0.0
@@ -29,9 +34,12 @@ Versions
 ####Version 1.0.2
 + Created July 31, 2013
 + Added delete error message
-+ Bug fixes
 + Added better start/end time pickers
-+ Somewhat of a more simple UI
++ Added list filtering option
++ Added loading indicator
++ More simple and improved UI
++ Bug fixes
++ Improvements
 + Stable build
 
 
