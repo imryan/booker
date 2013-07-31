@@ -29,15 +29,18 @@ namespace Booker
              * the Parse database as well
              */
 
-            if (roomField.Text == "" || timeField.Text == "" || personField.Text == "") // Remove soon
+            if (roomField.Text == "" || personField.Text == "")
             {
                 MessageBox.Show("Fill in the fields left blank.", "Error");
             }
             else
             {
+                startTimePicker.CustomFormat = "h:mm";
+                endTimePicker.CustomFormat = "h:mm";
+
                 string room = this.roomField.Text;
                 string date = this.datePicker.Value.ToShortDateString();
-                string time = this.timeField.Text;
+                string time = this.startTimePicker.Text + " - " + this.endTimePicker.Text;
                 string person = personField.Text;
 
                 string[] array = new string[4] { room, date, time, person };

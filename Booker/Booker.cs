@@ -98,23 +98,25 @@ namespace Booker
             }
         }
 
-        private async void deleteBooking_Click(object sender, EventArgs e)
+        private void deleteBooking_Click(object sender, EventArgs e)
         {
             /* 
              * Deletes the row from the list
              * and the Parse database
-             */
-
+            
             var query = ParseObject.GetQuery("Booking")
                                    .OrderBy("date");
 
             IEnumerable<ParseObject> results = await query.FindAsync();
+            
 
             foreach (ListViewItem item in listView.SelectedItems)
             {
                 listView.Items.Remove(item);
-
             }
+             */
+
+            MessageBox.Show("Deleting items is still being developed. Contact Ryan for reservation removal.", "Alert");
         }
 
         private void aboutButton_Click(object sender, EventArgs e)
