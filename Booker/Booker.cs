@@ -129,5 +129,17 @@ namespace Booker
             About about = new About();
             about.ShowDialog();
         }
+
+        private void contactButton_Click(object sender, EventArgs e)
+        {
+            /* 
+             * Open default mail client
+             * to contact developer.
+             */
+
+            System.Diagnostics.Process process = new System.Diagnostics.Process();
+            process.StartInfo.FileName = "mailto:notryancohen@gmail.com?subject=Booker";
+            process.Start();
+        }
     }
 }
