@@ -29,7 +29,7 @@ namespace Booker
              * the Parse database as well
              */
 
-            if (roomField.Text == "" || personField.Text == "")
+            if (roomField.Text == "")
             {
                 MessageBox.Show("Fill in the fields left blank.", "Error");
             }
@@ -41,7 +41,7 @@ namespace Booker
                 string room = this.roomField.Text;
                 string date = this.datePicker.Value.ToShortDateString();
                 string time = this.startTimePicker.Text + " - " + this.endTimePicker.Text;
-                string person = personField.Text;
+                string person = ParseUser.CurrentUser.Username;
 
                 string[] array = new string[4] { room, date, time, person };
                 Program.booker.UpdatingListView(array);

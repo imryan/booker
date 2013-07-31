@@ -74,6 +74,12 @@
     <Compile Include="Booker\Booker.Designer.cs">
       <DependentUpon>Booker.cs</DependentUpon>
     </Compile>
+    <Compile Include="Filter\Filter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Filter\Filter.Designer.cs">
+      <DependentUpon>Filter.cs</DependentUpon>
+    </Compile>
     <Compile Include="Startup\Startup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +99,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Booker\Booker.resx">
       <DependentUpon>Booker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Filter\Filter.resx">
+      <DependentUpon>Filter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Startup\Startup.resx">
       <DependentUpon>Startup.cs</DependentUpon>

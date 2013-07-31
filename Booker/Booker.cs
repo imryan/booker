@@ -23,6 +23,7 @@ namespace Booker
             newBooking.Click += new EventHandler(newBooking_Click);
             deleteBooking.Click += new EventHandler(deleteBooking_Click);
             aboutButton.Click += new EventHandler(aboutButton_Click);
+            contactButton.Click += new EventHandler(contactButton_Click);
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
@@ -32,6 +33,7 @@ namespace Booker
              * closing action(s)
              */
 
+            ParseUser.LogOut();
             base.OnFormClosing(e);
             Environment.Exit(0);
         }
@@ -140,6 +142,12 @@ namespace Booker
             System.Diagnostics.Process process = new System.Diagnostics.Process();
             process.StartInfo.FileName = "mailto:notryancohen@gmail.com?subject=Booker";
             process.Start();
+        }
+
+        private void filterButton_Click(object sender, EventArgs e)
+        {
+            Filter filter = new Filter();
+            filter.ShowDialog();
         }
     }
 }

@@ -35,8 +35,6 @@
             this.roomField = new System.Windows.Forms.TextBox();
             this.datePicker = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.personField = new System.Windows.Forms.TextBox();
             this.startTimePicker = new System.Windows.Forms.DateTimePicker();
             this.endTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
@@ -44,7 +42,7 @@
             // 
             // newBookingButton
             // 
-            this.newBookingButton.Location = new System.Drawing.Point(10, 223);
+            this.newBookingButton.Location = new System.Drawing.Point(12, 182);
             this.newBookingButton.Name = "newBookingButton";
             this.newBookingButton.Size = new System.Drawing.Size(227, 33);
             this.newBookingButton.TabIndex = 9;
@@ -55,7 +53,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 176);
+            this.label2.Location = new System.Drawing.Point(12, 135);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(30, 13);
             this.label2.TabIndex = 8;
@@ -80,7 +78,7 @@
             // 
             // datePicker
             // 
-            this.datePicker.Location = new System.Drawing.Point(12, 193);
+            this.datePicker.Location = new System.Drawing.Point(14, 152);
             this.datePicker.Name = "datePicker";
             this.datePicker.Size = new System.Drawing.Size(226, 20);
             this.datePicker.TabIndex = 10;
@@ -88,53 +86,36 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 92);
+            this.label3.Location = new System.Drawing.Point(12, 51);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(55, 13);
             this.label3.TabIndex = 12;
             this.label3.Text = "&Start Time";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(10, 50);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
-            this.label4.TabIndex = 16;
-            this.label4.Text = "&Name";
-            // 
-            // personField
-            // 
-            this.personField.AcceptsTab = true;
-            this.personField.Location = new System.Drawing.Point(10, 67);
-            this.personField.Name = "personField";
-            this.personField.Size = new System.Drawing.Size(228, 20);
-            this.personField.TabIndex = 15;
-            // 
             // startTimePicker
             // 
             this.startTimePicker.CustomFormat = "hh:mm";
             this.startTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.startTimePicker.Location = new System.Drawing.Point(10, 108);
+            this.startTimePicker.Location = new System.Drawing.Point(12, 67);
             this.startTimePicker.Name = "startTimePicker";
             this.startTimePicker.ShowUpDown = true;
-            this.startTimePicker.Size = new System.Drawing.Size(230, 20);
+            this.startTimePicker.Size = new System.Drawing.Size(228, 20);
             this.startTimePicker.TabIndex = 17;
             // 
             // endTimePicker
             // 
             this.endTimePicker.CustomFormat = "hh:mm";
             this.endTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.endTimePicker.Location = new System.Drawing.Point(10, 150);
+            this.endTimePicker.Location = new System.Drawing.Point(15, 109);
             this.endTimePicker.Name = "endTimePicker";
             this.endTimePicker.ShowUpDown = true;
-            this.endTimePicker.Size = new System.Drawing.Size(230, 20);
+            this.endTimePicker.Size = new System.Drawing.Size(224, 20);
             this.endTimePicker.TabIndex = 19;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(10, 134);
+            this.label5.Location = new System.Drawing.Point(12, 93);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(52, 13);
             this.label5.TabIndex = 18;
@@ -144,12 +125,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(250, 268);
+            this.ClientSize = new System.Drawing.Size(250, 228);
             this.Controls.Add(this.endTimePicker);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.startTimePicker);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.personField);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.datePicker);
             this.Controls.Add(this.newBookingButton);
@@ -174,8 +153,6 @@
         private System.Windows.Forms.Label label3;
         public System.Windows.Forms.TextBox roomField;
         public System.Windows.Forms.DateTimePicker datePicker;
-        private System.Windows.Forms.Label label4;
-        public System.Windows.Forms.TextBox personField;
         public System.Windows.Forms.DateTimePicker startTimePicker;
         public System.Windows.Forms.DateTimePicker endTimePicker;
         private System.Windows.Forms.Label label5;

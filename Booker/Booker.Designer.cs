@@ -34,12 +34,14 @@
             this.dateHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.timeHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.personHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.newBooking = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteBooking = new System.Windows.Forms.ToolStripMenuItem();
+            this.filterButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.moreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutButton = new System.Windows.Forms.ToolStripMenuItem();
             this.contactButton = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip1.SuspendLayout();
+            this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // listView
@@ -80,18 +82,18 @@
             this.personHeader.Text = "Person";
             this.personHeader.Width = 143;
             // 
-            // menuStrip1
+            // menuStrip
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newBooking,
             this.deleteBooking,
-            this.aboutButton,
-            this.contactButton});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(684, 24);
-            this.menuStrip1.TabIndex = 6;
-            this.menuStrip1.Text = "menuStrip1";
+            this.filterButton,
+            this.moreToolStripMenuItem});
+            this.menuStrip.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip.Name = "menuStrip";
+            this.menuStrip.Size = new System.Drawing.Size(684, 24);
+            this.menuStrip.TabIndex = 6;
+            this.menuStrip.Text = "menuStrip1";
             // 
             // newBooking
             // 
@@ -105,18 +107,33 @@
             this.deleteBooking.Size = new System.Drawing.Size(99, 20);
             this.deleteBooking.Text = "Delete Booking";
             // 
+            // filterButton
+            // 
+            this.filterButton.Name = "filterButton";
+            this.filterButton.Size = new System.Drawing.Size(45, 20);
+            this.filterButton.Text = "Filter";
+            this.filterButton.Click += new System.EventHandler(this.filterButton_Click);
+            // 
+            // moreToolStripMenuItem
+            // 
+            this.moreToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutButton,
+            this.contactButton});
+            this.moreToolStripMenuItem.Name = "moreToolStripMenuItem";
+            this.moreToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
+            this.moreToolStripMenuItem.Text = "More";
+            // 
             // aboutButton
             // 
             this.aboutButton.Name = "aboutButton";
-            this.aboutButton.Size = new System.Drawing.Size(52, 20);
+            this.aboutButton.Size = new System.Drawing.Size(152, 22);
             this.aboutButton.Text = "About";
             // 
             // contactButton
             // 
             this.contactButton.Name = "contactButton";
-            this.contactButton.Size = new System.Drawing.Size(61, 20);
+            this.contactButton.Size = new System.Drawing.Size(152, 22);
             this.contactButton.Text = "Contact";
-            this.contactButton.Click += new System.EventHandler(this.contactButton_Click);
             // 
             // Booker
             // 
@@ -124,18 +141,18 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(684, 421);
             this.Controls.Add(this.listView);
-            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.menuStrip);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MainMenuStrip = this.menuStrip1;
+            this.MainMenuStrip = this.menuStrip;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Booker";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Booker";
             this.Load += new System.EventHandler(this.Booker_Load);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.menuStrip.ResumeLayout(false);
+            this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -148,9 +165,11 @@
         private System.Windows.Forms.ColumnHeader timeHeader;
         private System.Windows.Forms.ColumnHeader personHeader;
         public System.Windows.Forms.ListView listView;
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem newBooking;
         private System.Windows.Forms.ToolStripMenuItem deleteBooking;
+        private System.Windows.Forms.ToolStripMenuItem filterButton;
+        private System.Windows.Forms.ToolStripMenuItem moreToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutButton;
         private System.Windows.Forms.ToolStripMenuItem contactButton;
 
