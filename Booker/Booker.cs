@@ -47,6 +47,7 @@ namespace Booker
 
             listView.View = View.Details;
             listView.AllowColumnReorder = false;
+            listView.MultiSelect = true;
 
             Font ft = new Font(listView.Font.Name, 10);
             listView.Font = ft;

@@ -35,9 +35,6 @@ namespace Booker
             }
             else
             {
-                startTimePicker.CustomFormat = "h:mm";
-                endTimePicker.CustomFormat = "h:mm";
-
                 string room = this.roomField.Text;
                 string date = this.datePicker.Value.ToShortDateString();
                 string time = this.startTimePicker.Text + " - " + this.endTimePicker.Text;
