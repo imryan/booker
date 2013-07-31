@@ -19,5 +19,13 @@ Versions
 + Added project to source control
 + Stable build
 
+####Version 1.0.2
++ Created July 31, 2013
++ Added delete error message
++ Bug fixes
++ Added better start/end time pickers
++ Somewhat of a more simple UI
++ Stable build
+
 
 
