@@ -12,7 +12,7 @@ Screenshots
 
 TODO
 --
-+ Add multiple filtering optionsw
++ Add multiple filtering options
 + Add dropdown menu for rooms/people
 + Upcase first letter of name
 
