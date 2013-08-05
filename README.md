@@ -5,10 +5,11 @@ Originally designed for MST in Freehold, NJ.
 
 TODO
 --
-+ Add multiple filtering options
-+ Add dropdown menu for rooms/people
-+ Upcase first letter of name
 + Date reservations (e.g 7/8 - 7/10)
++ Reservations of items (dev computers) in another table
++ Item deletions
++ Better filtering
++ Improvements
 
 Versions
 ---
