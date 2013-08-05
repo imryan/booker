@@ -9,6 +9,8 @@ TODO
 + Reservations of items (dev computers) in another table
 + Item deletions
 + Better filtering
++ Email creator of selected reservation
++ Exporting to .csv?
 + Improvements
 
 Versions
