@@ -15,6 +15,7 @@ TODO
 + Add multiple filtering options
 + Add dropdown menu for rooms/people
 + Upcase first letter of name
++ Date reservations (e.g 7/8 - 7/10)
 
 Versions
 ---
