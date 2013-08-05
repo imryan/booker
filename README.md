@@ -11,6 +11,7 @@ TODO
 + Better filtering
 + Email creator of selected reservation
 + Exporting to .csv?
++ Archiving old reservtions. (Greyed out)
 + Improvements
 
 Versions
