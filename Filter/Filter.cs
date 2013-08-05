@@ -94,7 +94,7 @@ namespace Booker
 
             if (roomField.Text == "")
             {
-                MessageBox.Show("Please enter a room.");
+                MessageBox.Show("Please enter a room.","Alert");
             }
             else
             {
@@ -134,7 +134,7 @@ namespace Booker
 
             if (personField.Text == "")
             {
-                MessageBox.Show("Please enter a person.");
+                MessageBox.Show("Please enter a person.","Alert");
             }
             else
             {

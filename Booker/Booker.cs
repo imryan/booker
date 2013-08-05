@@ -45,7 +45,7 @@ namespace Booker
              * startup jobs to perform
              */
 
-            loadingBox.Visible = true;
+                loadingBox.Visible = true;
 
                 listView.View = View.Details;
                 listView.AllowColumnReorder = false;
