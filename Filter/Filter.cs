@@ -15,6 +15,14 @@ namespace Booker
         public Filter()
         {
             InitializeComponent();
+            filterDate.Click += new EventHandler(filterDate_Click);
+            filterTime.Click += new EventHandler(filterTime_Click);
+            filterRoom.Click += new EventHandler(filterRoom_Click);
+            filterPerson.Click += new EventHandler(filterPerson_Click);
+
+            roomField.Items.Add("Conference Room");
+            roomField.Items.Add("Upstairs Conference Room");
+            roomField.Items.Add("Other");
         }
 
         private void filterDate_Click(object sender, EventArgs e)

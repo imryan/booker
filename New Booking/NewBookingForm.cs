@@ -29,6 +29,10 @@ namespace Booker
              * the Parse database as well
              */
 
+            roomField.Items.Add("Conference Room");
+            roomField.Items.Add("Upstairs Conference Room");
+            roomField.Items.Add("Other");
+
             if (roomField.Text == "")
             {
                 MessageBox.Show("Fill in the fields left blank.", "Error");

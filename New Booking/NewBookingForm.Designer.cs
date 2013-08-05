@@ -32,12 +32,12 @@
             this.newBookingButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.roomField = new System.Windows.Forms.TextBox();
             this.datePicker = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.startTimePicker = new System.Windows.Forms.DateTimePicker();
             this.endTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
+            this.roomField = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // newBookingButton
@@ -67,14 +67,6 @@
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 6;
             this.label1.Text = "&Room";
-            // 
-            // roomField
-            // 
-            this.roomField.AcceptsTab = true;
-            this.roomField.Location = new System.Drawing.Point(12, 26);
-            this.roomField.Name = "roomField";
-            this.roomField.Size = new System.Drawing.Size(228, 20);
-            this.roomField.TabIndex = 5;
             // 
             // datePicker
             // 
@@ -121,11 +113,20 @@
             this.label5.TabIndex = 18;
             this.label5.Text = "&End Time";
             // 
+            // roomField
+            // 
+            this.roomField.FormattingEnabled = true;
+            this.roomField.Location = new System.Drawing.Point(12, 27);
+            this.roomField.Name = "roomField";
+            this.roomField.Size = new System.Drawing.Size(226, 21);
+            this.roomField.TabIndex = 26;
+            // 
             // newBookingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(250, 228);
+            this.Controls.Add(this.roomField);
             this.Controls.Add(this.endTimePicker);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.startTimePicker);
@@ -134,7 +135,6 @@
             this.Controls.Add(this.newBookingButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.roomField);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -152,10 +152,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
-        public System.Windows.Forms.TextBox roomField;
         public System.Windows.Forms.DateTimePicker datePicker;
         public System.Windows.Forms.DateTimePicker startTimePicker;
         public System.Windows.Forms.DateTimePicker endTimePicker;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox roomField;
     }
 }

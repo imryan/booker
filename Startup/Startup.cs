@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 using Parse;
 
@@ -23,6 +24,17 @@ namespace Booker
         private void mainForm_Load(object sender, EventArgs e)
         {
             usernameLogin.Focus();
+
+            // Fill username field
+            string usernameFromFile = System.IO.File.ReadAllText(@"C:\Users\Ryan\Documents\GitHub\booker\login.txt");
+            usernameLogin.Text = usernameFromFile.Remove(0, 36);
+
+            if (usernameLogin.Text != "")
+            {
+                rememberUsername.Checked = true;
+                rememberUsername.Enabled = false;
+            }
+            
         }
 
         private async void registerButton_Click(object sender, EventArgs e)
@@ -30,7 +42,6 @@ namespace Booker
             if (usernameCreate.Text == "" || passwordCreate.Text == "")
             {
                 MessageBox.Show("Please enter in all fields.", "Alert");
-
             }
             else
             {
@@ -77,6 +88,14 @@ namespace Booker
                     connectButton.Enabled = false;
                     await ParseUser.LogInAsync(usernameLogin.Text, passwordLogin.Text);
                     MessageBox.Show("Successfully logged in.", "Alert");
+
+                    // Check if remember username is checked
+                    if (rememberUsername.Checked)
+                    {
+                        System.IO.StreamWriter file = new StreamWriter(@"C:\Users\Ryan\Documents\GitHub\Booker\login.txt");
+                        file.Write(usernameLogin);
+                        file.Close();
+                    }
 
                     Hide();
 

@@ -24,6 +24,7 @@ namespace Booker
             deleteBooking.Click += new EventHandler(deleteBooking_Click);
             aboutButton.Click += new EventHandler(aboutButton_Click);
             contactButton.Click += new EventHandler(contactButton_Click);
+            refreshButton.Click += new EventHandler(refreshButton_Click);
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
@@ -162,6 +163,11 @@ namespace Booker
         {
             Filter filter = new Filter();
             filter.ShowDialog();
+        }
+
+        private void refreshButton_Click(object sender, EventArgs e)
+        {
+            Booker_Load(sender, e);
         }
     }
 }
