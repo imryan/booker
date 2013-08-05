@@ -38,7 +38,7 @@ namespace Booker
                 string room = this.roomField.Text;
                 string date = this.datePicker.Value.ToShortDateString();
                 string time = this.startTimePicker.Text + " - " + this.endTimePicker.Text;
-                string person = ParseUser.CurrentUser.Username;
+                string person = uppercaseFirst(ParseUser.CurrentUser.Username);
 
                 string[] array = new string[4] { room, date, time, person };
                 Program.booker.UpdatingListView(array);
@@ -52,6 +52,15 @@ namespace Booker
 
                 Dispose();
             }
+        }
+
+        private static string uppercaseFirst(string s)
+        {
+            if (string.IsNullOrEmpty(s))
+            {
+                return string.Empty;
+            }
+            return char.ToUpper(s[0]) + s.Substring(1);
         }
     }
 }

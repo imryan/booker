@@ -64,13 +64,22 @@ namespace Booker
                     string room = obj.Get<string>("room");
                     string date = obj.Get<string>("date");
                     string time = obj.Get<string>("time");
-                    string person = obj.Get<string>("person");
+                    string person = uppercaseFirst(obj.Get<string>("person"));
 
                     string[] array = new string[4] { room, date, time, person };
                     UpdatingListView(array);
             }
 
                 loadingBox.Visible = false;
+        }
+
+        private static string uppercaseFirst(string s)
+        {
+            if (string.IsNullOrEmpty(s))
+            {
+                return string.Empty;
+            }
+            return char.ToUpper(s[0]) + s.Substring(1);
         }
 
         private void newBooking_Click(object sender, EventArgs e)
