@@ -42,7 +42,6 @@
             this.aboutButton = new System.Windows.Forms.ToolStripMenuItem();
             this.contactButton = new System.Windows.Forms.ToolStripMenuItem();
             this.loadingBox = new System.Windows.Forms.PictureBox();
-            this.refreshButton = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.loadingBox)).BeginInit();
             this.SuspendLayout();
@@ -92,8 +91,7 @@
             this.newBooking,
             this.deleteBooking,
             this.filterButton,
-            this.moreToolStripMenuItem,
-            this.refreshButton});
+            this.moreToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new System.Drawing.Size(682, 24);
@@ -149,13 +147,6 @@
             this.loadingBox.TabIndex = 7;
             this.loadingBox.TabStop = false;
             // 
-            // refreshButton
-            // 
-            this.refreshButton.Name = "refreshButton";
-            this.refreshButton.Size = new System.Drawing.Size(58, 20);
-            this.refreshButton.Text = "Refresh";
-            this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
-            // 
             // Booker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -196,7 +187,6 @@
         private System.Windows.Forms.ToolStripMenuItem aboutButton;
         private System.Windows.Forms.ToolStripMenuItem contactButton;
         private System.Windows.Forms.PictureBox loadingBox;
-        private System.Windows.Forms.ToolStripMenuItem refreshButton;
 
     }
 }

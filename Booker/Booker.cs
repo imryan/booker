@@ -24,7 +24,6 @@ namespace Booker
             deleteBooking.Click += new EventHandler(deleteBooking_Click);
             aboutButton.Click += new EventHandler(aboutButton_Click);
             contactButton.Click += new EventHandler(contactButton_Click);
-            refreshButton.Click += new EventHandler(refreshButton_Click);
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
@@ -65,22 +64,13 @@ namespace Booker
                     string room = obj.Get<string>("room");
                     string date = obj.Get<string>("date");
                     string time = obj.Get<string>("time");
-                    string person = uppercaseFirst(obj.Get<string>("person"));
+                    string person = obj.Get<string>("person");
 
                     string[] array = new string[4] { room, date, time, person };
                     UpdatingListView(array);
             }
 
                 loadingBox.Visible = false;
-        }
-
-        private static string uppercaseFirst(string s)
-        {
-            if (string.IsNullOrEmpty(s))
-            {
-                return string.Empty;
-            }
-            return char.ToUpper(s[0]) + s.Substring(1);
         }
 
         private void newBooking_Click(object sender, EventArgs e)
@@ -133,7 +123,7 @@ namespace Booker
             }
              */
 
-            MessageBox.Show("Deleting items is still being developed. Contact Ryan for reservation removal.", "Alert");
+            MessageBox.Show("Item deletion is still being developed. Contact Ryan for reservation removal.", "Alert");
         }
 
         private void aboutButton_Click(object sender, EventArgs e)
@@ -155,7 +145,7 @@ namespace Booker
              */
 
             System.Diagnostics.Process process = new System.Diagnostics.Process();
-            process.StartInfo.FileName = "mailto:notryancohen@gmail.com?subject=Booker";
+            process.StartInfo.FileName = "mailto:ryan.cohen@mcroberts1876.com?subject=Booker";
             process.Start();
         }
 
@@ -163,11 +153,6 @@ namespace Booker
         {
             Filter filter = new Filter();
             filter.ShowDialog();
-        }
-
-        private void refreshButton_Click(object sender, EventArgs e)
-        {
-            Booker_Load(sender, e);
         }
     }
 }

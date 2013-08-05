@@ -15,10 +15,7 @@ namespace Booker
         public Filter()
         {
             InitializeComponent();
-            filterDate.Click += new EventHandler(filterDate_Click);
-            filterTime.Click += new EventHandler(filterTime_Click);
-            filterRoom.Click += new EventHandler(filterRoom_Click);
-            filterPerson.Click += new EventHandler(filterPerson_Click);
+            filterButton.Click += new EventHandler(filterButton_Click);
 
             roomField.Items.Add("Conference Room");
             roomField.Items.Add("Upstairs Conference Room");
@@ -169,6 +166,11 @@ namespace Booker
 
                 Dispose();
             }
+        }
+
+        private void filterButton_Click(object sender, EventArgs e)
+        {
+            // Add in the filtering options next commit
         }
     }
 }

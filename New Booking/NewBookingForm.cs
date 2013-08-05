@@ -17,6 +17,10 @@ namespace Booker
         public newBookingForm()
         {
             InitializeComponent();
+
+            roomField.Items.Add("Conference Room");
+            roomField.Items.Add("Upstairs Conference Room");
+            roomField.Items.Add("Other");
         }
 
         private async void newBookingButton_Click(object sender, EventArgs e)
@@ -29,10 +33,6 @@ namespace Booker
              * the Parse database as well
              */
 
-            roomField.Items.Add("Conference Room");
-            roomField.Items.Add("Upstairs Conference Room");
-            roomField.Items.Add("Other");
-
             if (roomField.Text == "")
             {
                 MessageBox.Show("Fill in the fields left blank.", "Error");
@@ -42,7 +42,7 @@ namespace Booker
                 string room = this.roomField.Text;
                 string date = this.datePicker.Value.ToShortDateString();
                 string time = this.startTimePicker.Text + " - " + this.endTimePicker.Text;
-                string person = uppercaseFirst(ParseUser.CurrentUser.Username);
+                string person = ParseUser.CurrentUser.Username;
 
                 string[] array = new string[4] { room, date, time, person };
                 Program.booker.UpdatingListView(array);
@@ -56,15 +56,6 @@ namespace Booker
 
                 Dispose();
             }
-        }
-
-        private static string uppercaseFirst(string s)
-        {
-            if (string.IsNullOrEmpty(s))
-            {
-                return string.Empty;
-            }
-            return char.ToUpper(s[0]) + s.Substring(1);
         }
     }
 }

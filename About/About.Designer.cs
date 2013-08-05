@@ -137,8 +137,8 @@
             this.textBoxDescription.Size = new System.Drawing.Size(271, 126);
             this.textBoxDescription.TabIndex = 23;
             this.textBoxDescription.TabStop = false;
-            this.textBoxDescription.Text = "Please report any bugs, errors, or anything else to Ryan Cohen (notryancohen@gmai" +
-    "l.com).\r\n\r\n";
+            this.textBoxDescription.Text = "Please report any bugs, errors, or anything else to Ryan Cohen (ryan.cohen@mcrobe" +
+    "rts1876.com).\r\n\r\n";
             // 
             // okButton
             // 
