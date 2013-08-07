@@ -40,7 +40,7 @@ namespace Booker
             else
             {
                 string room = this.roomField.Text;
-                string date = this.datePicker.Value.ToShortDateString();
+                string date = this.fromDatePicker.Value.ToShortDateString() + " - " + this.untilDatePicker.Value.ToShortDateString();
                 string time = this.startTimePicker.Text + " - " + this.endTimePicker.Text;
                 string person = ParseUser.CurrentUser.Username;
 
