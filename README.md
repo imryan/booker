@@ -5,14 +5,7 @@ Originally designed for MST in Freehold, NJ.
 
 TODO
 --
-+ Date reservations (e.g 7/8 - 7/10)
-+ Reservations of items (dev computers) in another table
-+ Item deletions
-+ Better filtering
-+ Email creator of selected reservation
-+ Exporting to .csv?
-+ Archiving old reservations. (Greyed out)
-+ Improvements
+View complete TODO list here: https://github.com/imryan/booker/issues
 
 Versions
 ---
