@@ -49,6 +49,8 @@ namespace Booker
             addToFilters(timeSelected);
             addToFilters(roomSelected);
             addToFilters(personSelected);
+
+            // FILTER THE LIST USING LINQ (HELP)
         }
 
         private void addToFilters(bool item)

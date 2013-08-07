@@ -7,7 +7,7 @@ using System.Resources;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Booker")]
-[assembly: AssemblyDescription("For any bug reports, errors, or anything else, please contact Ryan Cohen (notryancohen@gmail.com).")]
+[assembly: AssemblyDescription("Booker is a simple way to reserve rooms and items at the office.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("McRoberts Security Technologies")]
 [assembly: AssemblyProduct("Booker")]
@@ -33,6 +33,6 @@ using System.Resources;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.1.0.2")]
+[assembly: AssemblyVersion("0.1.0.3")]
 [assembly: AssemblyFileVersion("1.0.0")]
 [assembly: NeutralResourcesLanguageAttribute("en")]
