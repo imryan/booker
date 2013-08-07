@@ -42,6 +42,7 @@
             this.aboutButton = new System.Windows.Forms.ToolStripMenuItem();
             this.contactButton = new System.Windows.Forms.ToolStripMenuItem();
             this.loadingBox = new System.Windows.Forms.PictureBox();
+            this.featureRequestButton = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.loadingBox)).BeginInit();
             this.SuspendLayout();
@@ -121,7 +122,8 @@
             // 
             this.moreToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aboutButton,
-            this.contactButton});
+            this.contactButton,
+            this.featureRequestButton});
             this.moreToolStripMenuItem.Name = "moreToolStripMenuItem";
             this.moreToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
             this.moreToolStripMenuItem.Text = "More";
@@ -129,13 +131,13 @@
             // aboutButton
             // 
             this.aboutButton.Name = "aboutButton";
-            this.aboutButton.Size = new System.Drawing.Size(152, 22);
+            this.aboutButton.Size = new System.Drawing.Size(158, 22);
             this.aboutButton.Text = "About";
             // 
             // contactButton
             // 
             this.contactButton.Name = "contactButton";
-            this.contactButton.Size = new System.Drawing.Size(152, 22);
+            this.contactButton.Size = new System.Drawing.Size(158, 22);
             this.contactButton.Text = "Contact";
             // 
             // loadingBox
@@ -146,6 +148,13 @@
             this.loadingBox.Size = new System.Drawing.Size(67, 66);
             this.loadingBox.TabIndex = 7;
             this.loadingBox.TabStop = false;
+            // 
+            // featureRequestButton
+            // 
+            this.featureRequestButton.Name = "featureRequestButton";
+            this.featureRequestButton.Size = new System.Drawing.Size(158, 22);
+            this.featureRequestButton.Text = "Feature Request";
+            this.featureRequestButton.Click += new System.EventHandler(this.featureRequestButton_Click);
             // 
             // Booker
             // 
@@ -187,6 +196,7 @@
         private System.Windows.Forms.ToolStripMenuItem aboutButton;
         private System.Windows.Forms.ToolStripMenuItem contactButton;
         private System.Windows.Forms.PictureBox loadingBox;
+        private System.Windows.Forms.ToolStripMenuItem featureRequestButton;
 
     }
 }

@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,20 +12,59 @@ namespace Booker
 {
     public partial class Filter : Form
     {
+        private CheckBox[] _checkBoxes;
+        private List<bool> filters;
+
+        private bool dateSelected = false;
+        private bool timeSelected = false;
+        private bool roomSelected = false;
+        private bool personSelected = false;
+
         public Filter()
         {
             InitializeComponent();
-            filterButton.Click += new EventHandler(filterButton_Click);
 
             roomField.Items.Add("Conference Room");
             roomField.Items.Add("Upstairs Conference Room");
             roomField.Items.Add("Other");
+
+            _checkBoxes = new CheckBox[] { enableDate, enableTime, enableRoom, enablePerson };
         }
 
-        private void filterDate_Click(object sender, EventArgs e)
+        private void showCheckedBoxes(object sender, EventArgs e)
         {
-            // Filter the list by date
-            
+            for (int i = 0; i < _checkBoxes.Length; i++)
+            {   
+                // Determine the values of the booleans
+                dateSelected = _checkBoxes[0].Checked   ? true : false;
+                timeSelected = _checkBoxes[1].Checked   ? true : false;
+                roomSelected = _checkBoxes[2].Checked   ? true : false;
+                personSelected = _checkBoxes[3].Checked ? true : false;
+            }
+
+            filters = new List<bool>();
+
+            // Check if the boolean is true; if so, add to filters
+            addToFilters(dateSelected);
+            addToFilters(timeSelected);
+            addToFilters(roomSelected);
+            addToFilters(personSelected);
+        }
+
+        private void addToFilters(bool item)
+        {
+            if (item == true)
+            {
+                filters.Add(item);
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        private void filterDate(object sender, EventArgs e)
+        {            
             string date = datePicker.Value.ToShortDateString();
             int count = Program.booker.listView.Items.Count;
             ListViewItem searchItem = null;
@@ -35,8 +74,8 @@ namespace Booker
             {
                 if (index < Program.booker.listView.Items.Count)
                 {
-                    // true = search subitems
-                    // last false param = no partial matches (remove if you want partial matches)
+                    // True = search subitems
+                    // Last false param = no partial matches (remove if you want partial matches)
                     searchItem = Program.booker.listView.FindItemWithText(date, true, index,false);
                     if (searchItem != null)
                     {
@@ -49,16 +88,12 @@ namespace Booker
                 {
                     searchItem = null;
                 }
-
             } while (searchItem != null);
-
-            Dispose();
+            return;
         }
 
-        private void filterTime_Click(object sender, EventArgs e)
+        private void filterTime(object sender, EventArgs e)
         {
-            // Filter the list by time
-
             string time = timePicker.Value.ToShortTimeString();
             int count = Program.booker.listView.Items.Count;
             ListViewItem searchItem = null;
@@ -68,8 +103,8 @@ namespace Booker
             {
                 if (index < Program.booker.listView.Items.Count)
                 {
-                    // true = search subitems
-                    // last false param = no partial matches (remove if you want partial matches)
+                    // True = search subitems
+                    // Last false param = no partial matches (remove if you want partial matches)
                     searchItem = Program.booker.listView.FindItemWithText(time, true, index, true);
                     if (searchItem != null)
                     {
@@ -82,16 +117,12 @@ namespace Booker
                 {
                     searchItem = null;
                 }
-
             } while (searchItem != null);
-
-            Dispose();
+            return;
         }
 
-        private void filterRoom_Click(object sender, EventArgs e)
+        private void filterRoom(object sender, EventArgs e)
         {
-            // Filter the list by room
-
             string room = roomField.Text;
             int count = Program.booker.listView.Items.Count;
             ListViewItem searchItem = null;
@@ -99,7 +130,7 @@ namespace Booker
 
             if (roomField.Text == "")
             {
-                MessageBox.Show("Please enter a room.","Alert");
+                MessageBox.Show("Please enter a room.", "Alert");
             }
             else
             {
@@ -107,8 +138,8 @@ namespace Booker
                 {
                     if (index < Program.booker.listView.Items.Count)
                     {
-                        // true = search subitems
-                        // last false param = no partial matches (remove if you want partial matches)
+                        // True = search subitems
+                        // Last false param = no partial matches (remove if you want partial matches)
                         searchItem = Program.booker.listView.FindItemWithText(room, true, index, false);
                         if (searchItem != null)
                         {
@@ -121,17 +152,13 @@ namespace Booker
                     {
                         searchItem = null;
                     }
-
                 } while (searchItem != null);
-
-                Dispose();
+                return;
             }
         }
 
-        private void filterPerson_Click(object sender, EventArgs e)
+        private void filterPerson(object sender, EventArgs e)
         {
-            // Filter by person
-
             string person = personField.Text.ToLower();
             int count = Program.booker.listView.Items.Count;
             ListViewItem searchItem = null;
@@ -139,7 +166,7 @@ namespace Booker
 
             if (personField.Text == "")
             {
-                MessageBox.Show("Please enter a person.","Alert");
+                MessageBox.Show("Please enter a person.", "Alert");
             }
             else
             {
@@ -147,8 +174,8 @@ namespace Booker
                 {
                     if (index < Program.booker.listView.Items.Count)
                     {
-                        // true = search subitems
-                        // last false param = no partial matches (remove if you want partial matches)
+                        // True = search subitems
+                        // Last false param = no partial matches (remove if you want partial matches)
                         searchItem = Program.booker.listView.FindItemWithText(person, true, index, false);
                         if (searchItem != null)
                         {
@@ -161,16 +188,14 @@ namespace Booker
                     {
                         searchItem = null;
                     }
-
                 } while (searchItem != null);
-
-                Dispose();
+                return;
             }
         }
 
         private void filterButton_Click(object sender, EventArgs e)
         {
-            // Add in the filtering options next commit
+            showCheckedBoxes(sender, e);
         }
     }
 }

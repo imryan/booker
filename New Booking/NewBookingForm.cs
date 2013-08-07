@@ -27,7 +27,7 @@ namespace Booker
         {
             /* 
              * Adds the row to the list
-             * by seding params to the
+             * by sending params to the
              * handler method in the
              * next class, and adds to
              * the Parse database as well

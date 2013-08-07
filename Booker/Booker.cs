@@ -25,14 +25,9 @@ namespace Booker
             aboutButton.Click += new EventHandler(aboutButton_Click);
             contactButton.Click += new EventHandler(contactButton_Click);
         }
-
+        
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
-            /* 
-             * Overrides the form's
-             * closing action(s)
-             */
-
             ParseUser.LogOut();
             base.OnFormClosing(e);
             Environment.Exit(0);
@@ -40,11 +35,6 @@ namespace Booker
 
         private async void Booker_Load(object sender, EventArgs e)
         {
-            /* 
-             * Handles the form's
-             * startup jobs to perform
-             */
-
                 loadingBox.Visible = true;
 
                 listView.View = View.Details;
@@ -69,29 +59,17 @@ namespace Booker
                     string[] array = new string[4] { room, date, time, person };
                     UpdatingListView(array);
             }
-
                 loadingBox.Visible = false;
         }
 
         private void newBooking_Click(object sender, EventArgs e)
         {
-            /* 
-             * Displays the dialog to
-             * add a new booking
-             */
-
             newBookingForm nbf = new newBookingForm();
             nbf.ShowDialog();
         }
 
         public void UpdatingListView(string[] array)
         {
-            /* 
-             * Handles the addition of
-             * new rows being added to
-             * the list
-             */
-
             if (this.listView.InvokeRequired)
             {
                 this.listView.Invoke(new MyDelegate(UpdatingListView), new object[] { array });
@@ -124,28 +102,21 @@ namespace Booker
              */
 
             MessageBox.Show("Item deletion is still being developed. Contact Ryan for reservation removal.", "Alert");
+            System.Diagnostics.Process process = new System.Diagnostics.Process();
+            process.StartInfo.FileName = "mailto:ryan.cohen@mcroberts1876.com?subject=Booker Reservation Deletion";
+            process.Start();
         }
 
         private void aboutButton_Click(object sender, EventArgs e)
         {
-            /* 
-             * Displays the application's
-             * about panel
-             */
-
             About about = new About();
             about.ShowDialog();
         }
 
         private void contactButton_Click(object sender, EventArgs e)
         {
-            /* 
-             * Open default mail client
-             * to contact developer.
-             */
-
             System.Diagnostics.Process process = new System.Diagnostics.Process();
-            process.StartInfo.FileName = "mailto:ryan.cohen@mcroberts1876.com?subject=Booker";
+            process.StartInfo.FileName = "mailto:ryan.cohen@mcroberts1876.com?subject=Booker Contact";
             process.Start();
         }
 
@@ -153,6 +124,13 @@ namespace Booker
         {
             Filter filter = new Filter();
             filter.ShowDialog();
+        }
+
+        private void featureRequestButton_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process process = new System.Diagnostics.Process();
+            process.StartInfo.FileName = "mailto:ryan.cohen@mcroberts1876.com?subject=Booker Feature Request";
+            process.Start();
         }
     }
 }
