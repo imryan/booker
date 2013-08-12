@@ -41,5 +41,6 @@ Versions
 + Added username saving
 + Added dropdown boxes for rooms
 + Added archiving
++ Added email checking when registering
 
 
