@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-
 using Parse;
 
 namespace Booker
@@ -33,8 +32,7 @@ namespace Booker
             {
                 rememberUsername.Checked = true;
                 rememberUsername.Enabled = false;
-            }
-            
+            }   
         }
 
         private async void registerButton_Click(object sender, EventArgs e)

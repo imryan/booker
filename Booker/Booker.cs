@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 using Parse;
 
 namespace Booker
@@ -60,6 +59,7 @@ namespace Booker
                     UpdatingListView(array);
             }
                 loadingBox.Visible = false;
+                archiveReservation(sender, e);
         }
 
         private void newBooking_Click(object sender, EventArgs e)
@@ -105,6 +105,36 @@ namespace Booker
             System.Diagnostics.Process process = new System.Diagnostics.Process();
             process.StartInfo.FileName = "mailto:ryan.cohen@mcroberts1876.com?subject=Booker Reservation Deletion";
             process.Start();
+        }
+
+        private void archiveReservation(object sender, EventArgs e)
+        {
+            // Search for the current date in the LVIs
+            DateTime currentDate = DateTime.UtcNow.Date;
+            string date = currentDate.ToShortDateString();
+            int count = listView.Items.Count;
+
+            DateTime now = stringToDate(date);
+
+            for (int i = 0; i < count; i++)
+            {
+                ListViewItem currentItem = listView.Items[i];
+                string stringFromItem = currentItem.SubItems[1].ToString().Remove(0, 18);
+                stringFromItem = stringFromItem.Remove(stringFromItem.Length - 12);
+
+                DateTime then = stringToDate(stringFromItem);
+                if (now > then)
+                {
+                    currentItem.ForeColor = Color.Gray;
+                }
+            }
+        }
+
+        private DateTime stringToDate(string date)
+        {
+            DateTime dt;
+            DateTime.TryParse(date, out dt);
+            return dt;
         }
 
         private void aboutButton_Click(object sender, EventArgs e)

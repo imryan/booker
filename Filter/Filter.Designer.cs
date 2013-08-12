@@ -85,6 +85,7 @@
             this.timePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.timePicker.Location = new System.Drawing.Point(29, 68);
             this.timePicker.Name = "timePicker";
+            this.timePicker.ShowUpDown = true;
             this.timePicker.Size = new System.Drawing.Size(194, 20);
             this.timePicker.TabIndex = 43;
             // 

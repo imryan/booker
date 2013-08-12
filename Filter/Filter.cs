@@ -36,9 +36,9 @@ namespace Booker
             for (int i = 0; i < _checkBoxes.Length; i++)
             {   
                 // Determine the values of the booleans
-                dateSelected = _checkBoxes[0].Checked   ? true : false;
-                timeSelected = _checkBoxes[1].Checked   ? true : false;
-                roomSelected = _checkBoxes[2].Checked   ? true : false;
+                dateSelected   = _checkBoxes[0].Checked ? true : false;
+                timeSelected   = _checkBoxes[1].Checked ? true : false;
+                roomSelected   = _checkBoxes[2].Checked ? true : false;
                 personSelected = _checkBoxes[3].Checked ? true : false;
             }
 
@@ -50,7 +50,20 @@ namespace Booker
             addToFilters(roomSelected);
             addToFilters(personSelected);
 
-            // FILTER THE LIST USING LINQ (HELP)
+            // Filter the list with the given options
+            filterList(sender, e);
+        }
+
+        private void filterList(object sender, EventArgs e)
+        {
+            if (filters.Contains(timeSelected) && filters.Contains(roomSelected))
+            {
+                // Filter by time
+                filterTime(sender, e);
+
+                // Filter by room
+                filterRoom(sender, e);
+            }
         }
 
         private void addToFilters(bool item)
@@ -66,8 +79,8 @@ namespace Booker
         }
 
         private void filterDate(object sender, EventArgs e)
-        {            
-            string date = datePicker.Value.ToShortDateString();
+        {
+            string date = datePicker.Value.ToShortTimeString();
             int count = Program.booker.listView.Items.Count;
             ListViewItem searchItem = null;
             int index = 0;
@@ -78,7 +91,7 @@ namespace Booker
                 {
                     // True = search subitems
                     // Last false param = no partial matches (remove if you want partial matches)
-                    searchItem = Program.booker.listView.FindItemWithText(date, true, index,false);
+                    searchItem = Program.booker.listView.FindItemWithText(date, true, index, true);
                     if (searchItem != null)
                     {
                         index = searchItem.Index + 1;
