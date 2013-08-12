@@ -26,6 +26,8 @@ namespace Booker
 
             roomField.Items.Add("Conference Room");
             roomField.Items.Add("Upstairs Conference Room");
+            roomField.Items.Add("Sales Demo Unit 1");
+            roomField.Items.Add("Sales Demo Unit 2");
             roomField.Items.Add("Other");
 
             _checkBoxes = new CheckBox[] { enableDate, enableTime, enableRoom, enablePerson };
