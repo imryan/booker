@@ -36,12 +36,12 @@ namespace Booker
         {
                 loadingBox.Visible = true;
 
+                Font ft = new Font(listView.Font.Name, 10);
+                listView.Font = ft;
+
                 listView.View = View.Details;
                 listView.AllowColumnReorder = false;
                 listView.MultiSelect = true;
-
-                Font ft = new Font(listView.Font.Name, 10);
-                listView.Font = ft;
 
                 var query = ParseObject.GetQuery("Booking")
                                        .OrderBy("date");
