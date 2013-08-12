@@ -42,5 +42,6 @@ Versions
 + Added dropdown boxes for rooms
 + Added archiving
 + Added email checking when registering
++ Added multiple items to reserve
 
 
