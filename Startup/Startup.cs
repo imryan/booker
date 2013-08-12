@@ -43,32 +43,39 @@ namespace Booker
             }
             else
             {
-                var user = new ParseUser()
+                if (!usernameCreate.Text.Contains("@"))
                 {
-                    Username = usernameCreate.Text,
-                    Password = passwordCreate.Text
-                };
-
-                try
-                {
-                    registerButton.Enabled = false;
-                    await user.SignUpAsync();
-                    MessageBox.Show("User sucessfully created.", "Alert");
-
-                    // Login the new user
-                    await ParseUser.LogInAsync(usernameCreate.Text, passwordCreate.Text);
-                    MessageBox.Show("Successfully logged in.", "Alert");
-
-                    Hide();
-                    Program.booker = new Booker();
-                    Program.booker.Show();
+                    MessageBox.Show("Your username should be your company-issued email.", "Alert");
                 }
-                catch (Exception r)
+                else
                 {
-                    Console.WriteLine(r.Message);
+                    var user = new ParseUser()
+                    {
+                        Username = usernameCreate.Text,
+                        Password = passwordCreate.Text
+                    };
 
-                    MessageBox.Show("Username already in use!", "Alert");
-                    registerButton.Enabled = true;
+                    try
+                    {
+                        registerButton.Enabled = false;
+                        await user.SignUpAsync();
+                        MessageBox.Show("User sucessfully created.", "Alert");
+
+                        // Login the new user
+                        await ParseUser.LogInAsync(usernameCreate.Text, passwordCreate.Text);
+                        MessageBox.Show("Successfully logged in.", "Alert");
+
+                        Hide();
+                        Program.booker = new Booker();
+                        Program.booker.Show();
+                    }
+                    catch (Exception r)
+                    {
+                        Console.WriteLine(r.Message);
+
+                        MessageBox.Show("Username already in use!", "Alert");
+                        registerButton.Enabled = true;
+                    }
                 }
             }
         }
