@@ -25,7 +25,7 @@ namespace Booker
             usernameLogin.Focus();
 
             // Fill username field
-            string usernameFromFile = System.IO.File.ReadAllText(@"C:\Users\Ryan\Documents\GitHub\booker\login.txt");
+            string usernameFromFile = System.IO.File.ReadAllText(@"C:\AppData\Roaming\Booker\login.txt");
             usernameLogin.Text = usernameFromFile.Remove(0, 36);
 
             if (usernameLogin.Text != "")
@@ -97,7 +97,11 @@ namespace Booker
                     // Check if remember username is checked
                     if (rememberUsername.Checked)
                     {
-                        System.IO.StreamWriter file = new StreamWriter(@"C:\Users\Ryan\Documents\GitHub\Booker\login.txt");
+                        string folderName = @"C:\AppData\Roaming";
+                        string pathString = System.IO.Path.Combine(folderName, "Booker");
+                        System.IO.Directory.CreateDirectory(pathString);
+
+                        System.IO.StreamWriter file = new StreamWriter(@"C:\AppData\Roaming\Booker\login.txt");
                         file.Write(usernameLogin);
                         file.Close();
                     }

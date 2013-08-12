@@ -58,13 +58,11 @@ namespace Booker
 
         private void filterList(object sender, EventArgs e)
         {
-            if (filters.Contains(timeSelected) && filters.Contains(roomSelected))
+            if (filters.Contains(dateSelected))
             {
-                // Filter by time
-                filterTime(sender, e);
-
-                // Filter by room
-                filterRoom(sender, e);
+                // Filter date
+                // Query here from Parse
+                // https://parse.com/docs/dotnet_guide#queries
             }
         }
 
@@ -107,107 +105,6 @@ namespace Booker
                 }
             } while (searchItem != null);
             return;
-        }
-
-        private void filterTime(object sender, EventArgs e)
-        {
-            string time = timePicker.Value.ToShortTimeString();
-            int count = Program.booker.listView.Items.Count;
-            ListViewItem searchItem = null;
-            int index = 0;
-
-            do
-            {
-                if (index < Program.booker.listView.Items.Count)
-                {
-                    // True = search subitems
-                    // Last false param = no partial matches (remove if you want partial matches)
-                    searchItem = Program.booker.listView.FindItemWithText(time, true, index, true);
-                    if (searchItem != null)
-                    {
-                        index = searchItem.Index + 1;
-                        Program.booker.listView.MultiSelect = true;
-                        searchItem.Selected = true;
-                    }
-                }
-                else
-                {
-                    searchItem = null;
-                }
-            } while (searchItem != null);
-            return;
-        }
-
-        private void filterRoom(object sender, EventArgs e)
-        {
-            string room = roomField.Text;
-            int count = Program.booker.listView.Items.Count;
-            ListViewItem searchItem = null;
-            int index = 0;
-
-            if (roomField.Text == "")
-            {
-                MessageBox.Show("Please enter a room.", "Alert");
-            }
-            else
-            {
-                do
-                {
-                    if (index < Program.booker.listView.Items.Count)
-                    {
-                        // True = search subitems
-                        // Last false param = no partial matches (remove if you want partial matches)
-                        searchItem = Program.booker.listView.FindItemWithText(room, true, index, false);
-                        if (searchItem != null)
-                        {
-                            index = searchItem.Index + 1;
-                            Program.booker.listView.MultiSelect = true;
-                            searchItem.Selected = true;
-                        }
-                    }
-                    else
-                    {
-                        searchItem = null;
-                    }
-                } while (searchItem != null);
-                return;
-            }
-        }
-
-        private void filterPerson(object sender, EventArgs e)
-        {
-            string person = personField.Text.ToLower();
-            int count = Program.booker.listView.Items.Count;
-            ListViewItem searchItem = null;
-            int index = 0;
-
-            if (personField.Text == "")
-            {
-                MessageBox.Show("Please enter a person.", "Alert");
-            }
-            else
-            {
-                do
-                {
-                    if (index < Program.booker.listView.Items.Count)
-                    {
-                        // True = search subitems
-                        // Last false param = no partial matches (remove if you want partial matches)
-                        searchItem = Program.booker.listView.FindItemWithText(person, true, index, false);
-                        if (searchItem != null)
-                        {
-                            index = searchItem.Index + 1;
-                            Program.booker.listView.MultiSelect = true;
-                            searchItem.Selected = true;
-                        }
-                    }
-                    else
-                    {
-                        searchItem = null;
-                    }
-                } while (searchItem != null);
-                return;
-            }
         }
 
         private void filterButton_Click(object sender, EventArgs e)
