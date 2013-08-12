@@ -37,8 +37,9 @@ Versions
 ####Version 1.0.3
 + Created August 5, 2013
 + Changed usernames to company emails
-+ Added better reservation filtering
++ Added better reservation filtering (WIP)
 + Added username saving
 + Added dropdown boxes for rooms
++ Added archiving
 
 
