@@ -71,7 +71,7 @@ namespace Booker
 
         public void getCurrentEvents(object sender, EventArgs e)
         {
-            DateTime now = DateTime.Now;
+            TimeSpan now = DateTime.Now.TimeOfDay;
 
             for (int i = 0; i < listView.Items.Count; i++)
             {
@@ -83,29 +83,31 @@ namespace Booker
                 string endTime = currentItem.SubItems[2].ToString().Remove(0, 28);
                 endTime = endTime.Remove(endTime.Length - 1);
 
-                DateTime start = stringToDate(startTime);
-                DateTime end = stringToDate(endTime);
+                DateTime startDt = stringToDate(startTime);
+                DateTime endDt = stringToDate(endTime);
 
-                if (isBetweenTimes(now, start, end))
+                TimeSpan start = startDt.TimeOfDay;
+                TimeSpan end = endDt.TimeOfDay;
+
+                if (isBetweenTimes(DateTime.Now, start, end))
                 {
                     currentItem.Font = new Font(currentItem.Font, FontStyle.Bold);
                 }
+                MessageBox.Show("" + start);
             }
         }
 
-        private bool isBetweenTimes(DateTime now, DateTime start, DateTime end)
+        private bool isBetweenTimes(DateTime datetime, TimeSpan start, TimeSpan end)
         {
-            if (now.Equals(start) || now.Equals(end))
+            TimeSpan now = datetime.TimeOfDay;
+
+            if (start < end)
             {
-                return true;
-            }
-            else if (start.TimeOfDay <= end.TimeOfDay)
-            {
-                return (now.TimeOfDay >= start.TimeOfDay && now.TimeOfDay <= end.TimeOfDay);
+                return start <= now && now <= end;
             }
             else
             {
-                return !(now.TimeOfDay >= end.TimeOfDay && now.TimeOfDay <= start.TimeOfDay);
+                return !(end <= now && now <= start);
             }
         }
 
@@ -126,21 +128,17 @@ namespace Booker
 
         private void deleteBooking_Click(object sender, EventArgs e)
         {
-            /* 
-             * Deletes the row from the list
-             * and the Parse database
-            
+            /*            
             var query = ParseObject.GetQuery("Booking")
                                    .OrderBy("date");
 
             IEnumerable<ParseObject> results = await query.FindAsync();
-            
-
+             * 
             foreach (ListViewItem item in listView.SelectedItems)
             {
                 listView.Items.Remove(item);
             }
-             */
+            */
 
             MessageBox.Show("Item deletion is still being developed. Contact Ryan for reservation removal.", "Alert");
             System.Diagnostics.Process process = new System.Diagnostics.Process();

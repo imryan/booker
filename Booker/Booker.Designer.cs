@@ -111,7 +111,7 @@
             // loadingBox
             // 
             this.loadingBox.Image = ((System.Drawing.Image)(resources.GetObject("loadingBox.Image")));
-            this.loadingBox.Location = new System.Drawing.Point(295, 167);
+            this.loadingBox.Location = new System.Drawing.Point(307, 186);
             this.loadingBox.Name = "loadingBox";
             this.loadingBox.Size = new System.Drawing.Size(67, 66);
             this.loadingBox.TabIndex = 7;
@@ -151,7 +151,7 @@
             this.listView.MultiSelect = false;
             this.listView.Name = "listView";
             this.listView.ShowItemToolTips = true;
-            this.listView.Size = new System.Drawing.Size(658, 382);
+            this.listView.Size = new System.Drawing.Size(658, 465);
             this.listView.TabIndex = 0;
             this.listView.UseCompatibleStateImageBehavior = false;
             this.listView.View = System.Windows.Forms.View.Details;
@@ -160,7 +160,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(682, 421);
+            this.ClientSize = new System.Drawing.Size(682, 504);
             this.Controls.Add(this.loadingBox);
             this.Controls.Add(this.listView);
             this.Controls.Add(this.menuStrip);
