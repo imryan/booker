@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using Parse;
+using AutoUpdaterDotNET;
 
 namespace Booker
 {
@@ -18,6 +19,9 @@ namespace Booker
         {
             InitializeComponent();
             ParseClient.Initialize("JIn62aA3iMD5IReUkuRx5Q4tGXQC6nfiVfrqKJBT", "GO9h3Apu14nh6aRyYYxGfMUANwyDtYQ4mm9wgQMO");
+            ParseAnalytics.TrackAppOpenedAsync();
+
+            AutoUpdater.Start("http://imryan.net/booker/appcast.xml");
         }
 
         private void mainForm_Load(object sender, EventArgs e)
@@ -128,11 +132,11 @@ namespace Booker
 
             if (email.Equals(""))
             {
-                MessageBox.Show("Please enter in the email field.", "Alert");
+                MessageBox.Show("Please enter in the email field and try again.", "Alert");
             }
             else if (!email.Contains("@"))
             {
-                MessageBox.Show("Please enter your company email address.", "Alert");
+                MessageBox.Show("Please enter your company email address and try again.", "Alert");
             }
             else
             {
