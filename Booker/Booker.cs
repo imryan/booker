@@ -60,12 +60,53 @@ namespace Booker
             }
                 loadingBox.Visible = false;
                 archiveReservation(sender, e);
+                getCurrentEvents(sender, e);
         }
 
         private void newBooking_Click(object sender, EventArgs e)
         {
             newBookingForm nbf = new newBookingForm();
             nbf.ShowDialog();
+        }
+
+        private void getCurrentEvents(object sender, EventArgs e)
+        {
+            DateTime now = DateTime.Now;
+
+            for (int i = 0; i < listView.Items.Count; i++)
+            {
+                ListViewItem currentItem = listView.Items[i];
+
+                string startTime = currentItem.SubItems[2].ToString().Remove(0, 18);
+                startTime = startTime.Remove(startTime.Length - 13);
+
+                string endTime = currentItem.SubItems[2].ToString().Remove(0, 28);
+                endTime = endTime.Remove(endTime.Length - 1);
+
+                DateTime start = stringToDate(startTime);
+                DateTime end = stringToDate(endTime);
+
+                if (isBetweenTimes(now, start, end))
+                {
+                    currentItem.Font = new Font(currentItem.Font, FontStyle.Bold);
+                }
+            }
+        }
+
+        private bool isBetweenTimes(DateTime now, DateTime start, DateTime end)
+        {
+            if (now.Equals(start) || now.Equals(end))
+            {
+                return true;
+            }
+            else if (start.TimeOfDay <= end.TimeOfDay)
+            {
+                return (now.TimeOfDay >= start.TimeOfDay && now.TimeOfDay <= end.TimeOfDay);
+            }
+            else
+            {
+                return !(now.TimeOfDay >= end.TimeOfDay && now.TimeOfDay <= start.TimeOfDay);
+            }
         }
 
         public void UpdatingListView(string[] array)
@@ -121,8 +162,8 @@ namespace Booker
                 ListViewItem currentItem = listView.Items[i];
                 string stringFromItem = currentItem.SubItems[1].ToString().Remove(0, 18);
                 stringFromItem = stringFromItem.Remove(stringFromItem.Length - 12);
-
                 DateTime then = stringToDate(stringFromItem);
+
                 if (now > then)
                 {
                     currentItem.ForeColor = Color.Gray;

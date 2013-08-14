@@ -48,14 +48,6 @@ namespace Booker
 
         private async void newBookingButton_Click(object sender, EventArgs e)
         {
-            /* 
-             * Adds the row to the list
-             * by sending params to the
-             * handler method in the
-             * next class, and adds to
-             * the Parse database as well
-             */
-
             if (roomField.Text == "")
             {
                 MessageBox.Show("Fill in the fields left blank.", "Error");
