@@ -1,7 +1,7 @@
 Booker
 ===
-Simple room reservations for offices.
-Originally designed for MST in Freehold, NJ.
+An app for reserving rooms and other items in the office.
+Built for MST in Freehold, NJ.
 
 TODO
 --
