@@ -44,4 +44,5 @@ Versions
 + Added email checking when registering
 + Added multiple items to reserve
 + Checks if reservation exists before adding a new one
++ Emboldens reservations that are currently ongoing
 
