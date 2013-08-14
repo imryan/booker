@@ -121,5 +121,24 @@ namespace Booker
                 }
             }
         }
+
+        private async void forgotPassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            string email = Microsoft.VisualBasic.Interaction.InputBox("Please enter the company email address\nyou used to register with.", "Alert","", -1, -1);
+
+            if (email.Equals(""))
+            {
+                MessageBox.Show("Please enter in the email field.", "Alert");
+            }
+            else if (!email.Contains("@"))
+            {
+                MessageBox.Show("Please enter your company email address.", "Alert");
+            }
+            else
+            {
+                await ParseUser.RequestPasswordResetAsync(email);
+                MessageBox.Show("Password reset instructions sent to: " + email + "." + "Alert");
+            }
+        }
     }
 }

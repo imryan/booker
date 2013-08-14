@@ -56,7 +56,7 @@ namespace Booker
                     string person = obj.Get<string>("person");
 
                     string[] array = new string[4] { room, date, time, person };
-                    UpdatingListView(array);
+                    updatingListView(array);
             }
                 loadingBox.Visible = false;
                 archiveReservation(sender, e);
@@ -69,7 +69,7 @@ namespace Booker
             nbf.ShowDialog();
         }
 
-        private void getCurrentEvents(object sender, EventArgs e)
+        public void getCurrentEvents(object sender, EventArgs e)
         {
             DateTime now = DateTime.Now;
 
@@ -109,11 +109,11 @@ namespace Booker
             }
         }
 
-        public void UpdatingListView(string[] array)
+        public void updatingListView(string[] array)
         {
             if (this.listView.InvokeRequired)
             {
-                this.listView.Invoke(new MyDelegate(UpdatingListView), new object[] { array });
+                this.listView.Invoke(new MyDelegate(updatingListView), new object[] { array });
 
             } else {
                 ListViewItem lvi = new ListViewItem(array[0]);

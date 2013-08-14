@@ -65,7 +65,8 @@ namespace Booker
 
                 if (canAdd)
                 {
-                    Program.booker.UpdatingListView(array);
+                    Program.booker.updatingListView(array);
+                    Program.booker.getCurrentEvents(sender, e);
 
                     ParseObject booking = new ParseObject("Booking");
                     booking["room"] = room;
