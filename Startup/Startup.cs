@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using Parse;
-using AutoUpdaterDotNET;
 
 namespace Booker
 {
@@ -20,8 +19,6 @@ namespace Booker
             InitializeComponent();
             ParseClient.Initialize("JIn62aA3iMD5IReUkuRx5Q4tGXQC6nfiVfrqKJBT", "GO9h3Apu14nh6aRyYYxGfMUANwyDtYQ4mm9wgQMO");
             ParseAnalytics.TrackAppOpenedAsync();
-
-            AutoUpdater.Start("http://imryan.net/booker/appcast.xml");
         }
 
         private void mainForm_Load(object sender, EventArgs e)
