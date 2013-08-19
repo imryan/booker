@@ -27,6 +27,7 @@ namespace Booker
             if (ParseUser.CurrentUser != null)
             {
                 MessageBox.Show(ParseUser.CurrentUser.Username + " is still logged in. Press Connect to enter.","Alert");
+
                 usernameLogin.Enabled = false;
                 passwordLogin.Enabled = false;
                 forgotPassword.Enabled = false;
@@ -82,6 +83,7 @@ namespace Booker
         {
             if (ParseUser.CurrentUser != null)
             {
+                Hide();
                 Program.booker = new Booker();
                 Program.booker.Show();
             }

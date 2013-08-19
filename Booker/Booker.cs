@@ -76,21 +76,62 @@ namespace Booker
             {
                 ListViewItem currentItem = listView.Items[i];
 
-                string startTime = currentItem.SubItems[2].ToString().Remove(0, 18);
-                startTime = startTime.Remove(startTime.Length - 13);
-
-                string endTime = currentItem.SubItems[2].ToString().Remove(0, 28);
-                endTime = endTime.Remove(endTime.Length - 1);
-
-                DateTime startDt = stringToDate(startTime);
-                DateTime endDt = stringToDate(endTime);
-
-                TimeSpan start = startDt.TimeOfDay;
-                TimeSpan end = endDt.TimeOfDay;
-
-                if (isBetweenTimes(DateTime.Now, start, end))
+                if (currentItem.SubItems[2].ToString().Length == 36)
                 {
-                    currentItem.Font = new Font(currentItem.Font, FontStyle.Bold);
+                    string startTime = currentItem.SubItems[2].ToString().Remove(0, 18);
+                    startTime = startTime.Remove(startTime.Length - 13);
+
+                    string endTime = currentItem.SubItems[2].ToString().Remove(0, 28);
+                    endTime = endTime.Remove(endTime.Length - 1);
+
+                    DateTime startDt = stringToDate(startTime);
+                    DateTime endDt = stringToDate(endTime);
+
+                    TimeSpan start = startDt.TimeOfDay;
+                    TimeSpan end = endDt.TimeOfDay;
+
+                    if (isBetweenTimes(DateTime.Now, start, end))
+                    {
+                        currentItem.Font = new Font(currentItem.Font, FontStyle.Bold);
+                    }
+                }
+                else if (currentItem.SubItems[2].ToString().Length == 38)
+                {
+                    string startTime = currentItem.SubItems[2].ToString().Remove(0, 18);
+                    startTime = startTime.Remove(startTime.Length - 17);
+
+                    string endTime = currentItem.SubItems[2].ToString().Remove(0, 28);
+                    endTime = endTime.Remove(endTime.Length - 1);
+
+                    DateTime startDt = stringToDate(startTime);
+                    DateTime endDt = stringToDate(endTime);
+
+                    TimeSpan start = startDt.TimeOfDay;
+                    TimeSpan end = endDt.TimeOfDay;
+
+                    if (isBetweenTimes(DateTime.Now, start, end))
+                    {
+                        currentItem.Font = new Font(currentItem.Font, FontStyle.Bold);
+                    }
+                }
+                else if (currentItem.SubItems[2].ToString().Length == 37)
+                {
+                    string startTime = currentItem.SubItems[2].ToString().Remove(0, 18);
+                    startTime = startTime.Remove(startTime.Length - 13);
+
+                    string endTime = currentItem.SubItems[2].ToString().Remove(0, 28);
+                    endTime = endTime.Remove(endTime.Length - 1);
+
+                    DateTime startDt = stringToDate(startTime);
+                    DateTime endDt = stringToDate(endTime);
+
+                    TimeSpan start = startDt.TimeOfDay;
+                    TimeSpan end = endDt.TimeOfDay;
+
+                    if (isBetweenTimes(DateTime.Now, start, end))
+                    {
+                        currentItem.Font = new Font(currentItem.Font, FontStyle.Bold);
+                    }
                 }
             }
         }
@@ -98,6 +139,7 @@ namespace Booker
         private bool isBetweenTimes(DateTime datetime, TimeSpan start, TimeSpan end)
         {
             TimeSpan now = datetime.TimeOfDay;
+            //MessageBox.Show("" + start);
 
             if (start < end)
             {
