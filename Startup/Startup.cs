@@ -118,6 +118,8 @@ namespace Booker
 
                     Program.booker = new Booker();
                     Program.booker.Show();
+
+                    shouldRemember(sender, e);
                 }
                 catch (Exception l)
                 {
@@ -145,14 +147,14 @@ namespace Booker
                         if (!isoStore.FileExists("login.txt"))
                         {
                             isoStore.CreateFile("login.txt");
-                        }
-                    }
 
-                    using (StreamWriter writer = new StreamWriter(isoStream))
-                    {
-                        string usernameToSave = usernameLogin.Text;
-                        writer.WriteLine(usernameToSave);
-                        MessageBox.Show("Login saved");
+                            using (StreamWriter writer = new StreamWriter(isoStream))
+                            {
+                                string usernameToSave = usernameLogin.Text;
+                                writer.WriteLine(usernameToSave);
+                                MessageBox.Show("Login saved");
+                            }
+                        }
                     }
                 }
             }
