@@ -23,8 +23,11 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <UpdateUrl>http://imryan.net/booker/appcast.xml/</UpdateUrl>
+    <TargetCulture>en</TargetCulture>
+    <ProductName>Booker</ProductName>
+    <PublisherName>Ryan Cohen</PublisherName>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>4</ApplicationRevision>
+    <ApplicationRevision>5</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>

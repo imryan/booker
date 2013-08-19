@@ -93,7 +93,6 @@ namespace Booker
                 {
                     currentItem.Font = new Font(currentItem.Font, FontStyle.Bold);
                 }
-                MessageBox.Show("" + start);
             }
         }
 

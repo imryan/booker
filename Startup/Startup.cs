@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.IO.IsolatedStorage;
 using Parse;
 
 
@@ -26,10 +27,27 @@ namespace Booker
         {
             usernameLogin.Focus();
 
-            // Fill username field
-            string usernameFromFile = System.IO.File.ReadAllText(@"C:\AppData\Roaming\Booker\login.txt");
-            usernameLogin.Text = usernameFromFile.Remove(0, 36);
+            IsolatedStorageFile isoStore = IsolatedStorageFile.GetStore(IsolatedStorageScope.User | IsolatedStorageScope.Domain | IsolatedStorageScope.Assembly, null, null);
+ 
+            // If it doesn't exist, ignore it
+            if (!isoStore.FileExists("login.txt"))
+            {
+                MessageBox.Show("That file doesn't exist!");
+            }
 
+            // If it exists, read it in and trim the whitespaces
+            else
+            {
+                using (IsolatedStorageFileStream isoStream = new IsolatedStorageFileStream("login.txt", FileMode.Open, isoStore))
+                {
+                    using (StreamReader reader = new StreamReader(isoStream))
+                    {
+                        string usernameFromFile = reader.ReadToEnd().Trim();
+                        usernameLogin.Text = usernameFromFile;
+                    }
+                }
+            }
+                
             if (usernameLogin.Text != "")
             {
                 rememberUsername.Checked = true;
@@ -96,23 +114,10 @@ namespace Booker
                     await ParseUser.LogInAsync(usernameLogin.Text, passwordLogin.Text);
                     MessageBox.Show("Successfully logged in.", "Alert");
 
-                    // Check if remember username is checked
-                    if (rememberUsername.Checked)
-                    {
-                        string folderName = @"C:\AppData\Roaming";
-                        string pathString = System.IO.Path.Combine(folderName, "Booker");
-                        System.IO.Directory.CreateDirectory(pathString);
-
-                        System.IO.StreamWriter file = new StreamWriter(@"C:\AppData\Roaming\Booker\login.txt");
-                        file.Write(usernameLogin);
-                        file.Close();
-                    }
-
                     Hide();
 
                     Program.booker = new Booker();
                     Program.booker.Show();
-
                 }
                 catch (Exception l)
                 {
@@ -123,7 +128,36 @@ namespace Booker
                 }
             }
         }
+        
+        private void shouldRemember(object sender, EventArgs e)
+        {
+            if (rememberUsername.Checked)
+            {
+                IsolatedStorageFile isoStore = IsolatedStorageFile.GetStore(IsolatedStorageScope.User | IsolatedStorageScope.Domain | IsolatedStorageScope.Assembly, null, null);
+                
+                using (IsolatedStorageFileStream isoStream = new IsolatedStorageFileStream("login.txt", FileMode.CreateNew, isoStore))
+                {
+                    // If the dir/file doesn't exist, create them now
+                    if (!isoStore.DirectoryExists("Booker"))
+                    {
+                        isoStore.CreateDirectory("Booker");
 
+                        if (!isoStore.FileExists("login.txt"))
+                        {
+                            isoStore.CreateFile("login.txt");
+                        }
+                    }
+
+                    using (StreamWriter writer = new StreamWriter(isoStream))
+                    {
+                        string usernameToSave = usernameLogin.Text;
+                        writer.WriteLine(usernameToSave);
+                        MessageBox.Show("Login saved");
+                    }
+                }
+            }
+        }
+        
         private async void forgotPassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             string email = Microsoft.VisualBasic.Interaction.InputBox("Please enter the company email address\nyou used to register with.", "Alert","", -1, -1);
