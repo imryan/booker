@@ -32,7 +32,6 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.forgotPassword = new System.Windows.Forms.LinkLabel();
-            this.rememberUsername = new System.Windows.Forms.CheckBox();
             this.connectButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.passwordLogin = new System.Windows.Forms.TextBox();
@@ -58,13 +57,12 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 137);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(248, 210);
+            this.tabControl1.Size = new System.Drawing.Size(248, 197);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.forgotPassword);
-            this.tabPage1.Controls.Add(this.rememberUsername);
             this.tabPage1.Controls.Add(this.connectButton);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.passwordLogin);
@@ -73,7 +71,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(240, 184);
+            this.tabPage1.Size = new System.Drawing.Size(240, 171);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Login";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -89,19 +87,9 @@
             this.forgotPassword.Text = "Forgot password?";
             this.forgotPassword.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.forgotPassword_LinkClicked);
             // 
-            // rememberUsername
-            // 
-            this.rememberUsername.AutoSize = true;
-            this.rememberUsername.Location = new System.Drawing.Point(51, 115);
-            this.rememberUsername.Name = "rememberUsername";
-            this.rememberUsername.Size = new System.Drawing.Size(126, 17);
-            this.rememberUsername.TabIndex = 5;
-            this.rememberUsername.Text = "Remember username";
-            this.rememberUsername.UseVisualStyleBackColor = true;
-            // 
             // connectButton
             // 
-            this.connectButton.Location = new System.Drawing.Point(6, 145);
+            this.connectButton.Location = new System.Drawing.Point(6, 126);
             this.connectButton.Name = "connectButton";
             this.connectButton.Size = new System.Drawing.Size(228, 33);
             this.connectButton.TabIndex = 4;
@@ -154,14 +142,14 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(240, 184);
+            this.tabPage2.Size = new System.Drawing.Size(240, 171);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Register";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // registerButton
             // 
-            this.registerButton.Location = new System.Drawing.Point(6, 145);
+            this.registerButton.Location = new System.Drawing.Point(6, 126);
             this.registerButton.Name = "registerButton";
             this.registerButton.Size = new System.Drawing.Size(228, 33);
             this.registerButton.TabIndex = 9;
@@ -218,7 +206,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(272, 359);
+            this.ClientSize = new System.Drawing.Size(272, 344);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -255,7 +243,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox usernameCreate;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.CheckBox rememberUsername;
         private System.Windows.Forms.LinkLabel forgotPassword;
     }
 }

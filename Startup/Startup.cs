@@ -11,7 +11,6 @@ using System.IO;
 using System.IO.IsolatedStorage;
 using Parse;
 
-
 namespace Booker
 {
     public partial class mainForm : Form
@@ -25,34 +24,13 @@ namespace Booker
 
         private void mainForm_Load(object sender, EventArgs e)
         {
-            usernameLogin.Focus();
-
-            IsolatedStorageFile isoStore = IsolatedStorageFile.GetStore(IsolatedStorageScope.User | IsolatedStorageScope.Domain | IsolatedStorageScope.Assembly, null, null);
- 
-            // If it doesn't exist, ignore it
-            if (!isoStore.FileExists("login.txt"))
+            if (ParseUser.CurrentUser != null)
             {
-                MessageBox.Show("That file doesn't exist!");
+                MessageBox.Show(ParseUser.CurrentUser.Username + " is still logged in. Press Connect to enter.","Alert");
+                usernameLogin.Enabled = false;
+                passwordLogin.Enabled = false;
+                forgotPassword.Enabled = false;
             }
-
-            // If it exists, read it in and trim the whitespaces
-            else
-            {
-                using (IsolatedStorageFileStream isoStream = new IsolatedStorageFileStream("login.txt", FileMode.Open, isoStore))
-                {
-                    using (StreamReader reader = new StreamReader(isoStream))
-                    {
-                        string usernameFromFile = reader.ReadToEnd().Trim();
-                        usernameLogin.Text = usernameFromFile;
-                    }
-                }
-            }
-                
-            if (usernameLogin.Text != "")
-            {
-                rememberUsername.Checked = true;
-                rememberUsername.Enabled = false;
-            }   
         }
 
         private async void registerButton_Click(object sender, EventArgs e)
@@ -102,59 +80,41 @@ namespace Booker
 
         private async void connectButton_Click(object sender, EventArgs e)
         {
-            if (usernameLogin.Text == "" || passwordLogin.Text == "")
+            if (ParseUser.CurrentUser != null)
             {
-                MessageBox.Show("Please enter in all fields.", "Alert");
+                Program.booker = new Booker();
+                Program.booker.Show();
             }
-            else
+
+            if (ParseUser.CurrentUser == null)
             {
-                try
+                usernameLogin.Enabled = true;
+                passwordLogin.Enabled = true;
+                forgotPassword.Enabled = true;
+
+                if (usernameLogin.Text == "" || passwordLogin.Text == "")
                 {
-                    connectButton.Enabled = false;
-                    await ParseUser.LogInAsync(usernameLogin.Text, passwordLogin.Text);
-                    MessageBox.Show("Successfully logged in.", "Alert");
-
-                    Hide();
-
-                    Program.booker = new Booker();
-                    Program.booker.Show();
-
-                    shouldRemember(sender, e);
+                    MessageBox.Show("Please enter in all fields.", "Alert");
                 }
-                catch (Exception l)
+                else
                 {
-                    Console.WriteLine(l.Message);
-
-                    MessageBox.Show("Invalid credentials, try again.", "Alert");
-                    connectButton.Enabled = true;
-                }
-            }
-        }
-        
-        private void shouldRemember(object sender, EventArgs e)
-        {
-            if (rememberUsername.Checked)
-            {
-                IsolatedStorageFile isoStore = IsolatedStorageFile.GetStore(IsolatedStorageScope.User | IsolatedStorageScope.Domain | IsolatedStorageScope.Assembly, null, null);
-                
-                using (IsolatedStorageFileStream isoStream = new IsolatedStorageFileStream("login.txt", FileMode.CreateNew, isoStore))
-                {
-                    // If the dir/file doesn't exist, create them now
-                    if (!isoStore.DirectoryExists("Booker"))
+                    try
                     {
-                        isoStore.CreateDirectory("Booker");
+                        connectButton.Enabled = false;
+                        await ParseUser.LogInAsync(usernameLogin.Text, passwordLogin.Text);
+                        MessageBox.Show("Successfully logged in.", "Alert");
 
-                        if (!isoStore.FileExists("login.txt"))
-                        {
-                            isoStore.CreateFile("login.txt");
+                        Hide();
 
-                            using (StreamWriter writer = new StreamWriter(isoStream))
-                            {
-                                string usernameToSave = usernameLogin.Text;
-                                writer.WriteLine(usernameToSave);
-                                MessageBox.Show("Login saved");
-                            }
-                        }
+                        Program.booker = new Booker();
+                        Program.booker.Show();
+                    }
+                    catch (Exception l)
+                    {
+                        Console.WriteLine(l.Message);
+
+                        MessageBox.Show("Invalid credentials, try again.", "Alert");
+                        connectButton.Enabled = true;
                     }
                 }
             }

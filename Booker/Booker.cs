@@ -27,7 +27,6 @@ namespace Booker
         
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
-            ParseUser.LogOut();
             base.OnFormClosing(e);
             Environment.Exit(0);
         }
@@ -199,6 +198,12 @@ namespace Booker
             System.Diagnostics.Process process = new System.Diagnostics.Process();
             process.StartInfo.FileName = "mailto:ryan.cohen@mcroberts1876.com?subject=Booker Feature Request";
             process.Start();
+        }
+
+        private void logoutButton_Click(object sender, EventArgs e)
+        {
+            ParseUser.LogOut();
+            Environment.Exit(0);
         }
     }
 }
