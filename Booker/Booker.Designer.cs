@@ -37,13 +37,13 @@
             this.aboutButton = new System.Windows.Forms.ToolStripMenuItem();
             this.contactButton = new System.Windows.Forms.ToolStripMenuItem();
             this.featureRequestButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.logoutButton = new System.Windows.Forms.ToolStripMenuItem();
             this.loadingBox = new System.Windows.Forms.PictureBox();
             this.roomHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.dateHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.timeHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.personHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.listView = new System.Windows.Forms.ListView();
-            this.logoutButton = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.loadingBox)).BeginInit();
             this.SuspendLayout();
@@ -58,7 +58,7 @@
             this.logoutButton});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(682, 24);
+            this.menuStrip.Size = new System.Drawing.Size(722, 24);
             this.menuStrip.TabIndex = 6;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -110,10 +110,17 @@
             this.featureRequestButton.Text = "Feature Request";
             this.featureRequestButton.Click += new System.EventHandler(this.featureRequestButton_Click);
             // 
+            // logoutButton
+            // 
+            this.logoutButton.Name = "logoutButton";
+            this.logoutButton.Size = new System.Drawing.Size(57, 20);
+            this.logoutButton.Text = "Logout";
+            this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
+            // 
             // loadingBox
             // 
             this.loadingBox.Image = ((System.Drawing.Image)(resources.GetObject("loadingBox.Image")));
-            this.loadingBox.Location = new System.Drawing.Point(307, 186);
+            this.loadingBox.Location = new System.Drawing.Point(308, 189);
             this.loadingBox.Name = "loadingBox";
             this.loadingBox.Size = new System.Drawing.Size(67, 66);
             this.loadingBox.TabIndex = 7;
@@ -137,7 +144,7 @@
             // personHeader
             // 
             this.personHeader.Text = "Person";
-            this.personHeader.Width = 163;
+            this.personHeader.Width = 203;
             // 
             // listView
             // 
@@ -153,23 +160,16 @@
             this.listView.MultiSelect = false;
             this.listView.Name = "listView";
             this.listView.ShowItemToolTips = true;
-            this.listView.Size = new System.Drawing.Size(658, 465);
+            this.listView.Size = new System.Drawing.Size(698, 465);
             this.listView.TabIndex = 0;
             this.listView.UseCompatibleStateImageBehavior = false;
             this.listView.View = System.Windows.Forms.View.Details;
-            // 
-            // logoutButton
-            // 
-            this.logoutButton.Name = "logoutButton";
-            this.logoutButton.Size = new System.Drawing.Size(57, 20);
-            this.logoutButton.Text = "Logout";
-            this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
             // 
             // Booker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(682, 504);
+            this.ClientSize = new System.Drawing.Size(722, 504);
             this.Controls.Add(this.loadingBox);
             this.Controls.Add(this.listView);
             this.Controls.Add(this.menuStrip);
