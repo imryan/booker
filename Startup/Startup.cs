@@ -42,7 +42,7 @@ namespace Booker
             }
             else
             {
-                if (!usernameCreate.Text.Contains("@"))
+                if (!usernameCreate.Text.Contains("@mcroberts1876.com"))
                 {
                     MessageBox.Show("Your username should be your company-issued email.", "Alert");
                 }
