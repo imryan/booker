@@ -1,14 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
-using System.IO.IsolatedStorage;
 using Parse;
 
 namespace Booker
@@ -26,7 +17,7 @@ namespace Booker
         {
             if (ParseUser.CurrentUser != null)
             {
-                MessageBox.Show(ParseUser.CurrentUser.Username + " is still logged in. Press Connect to enter.","Alert");
+                MessageBox.Show(ParseUser.CurrentUser.Username + " is still logged in. Click to log back in.","Alert");
 
                 usernameLogin.Enabled = false;
                 passwordLogin.Enabled = false;
@@ -127,7 +118,7 @@ namespace Booker
             {
                 MessageBox.Show("Please enter in the email field and try again.", "Alert");
             }
-            else if (!email.Contains("@"))
+            else if (!email.Contains("@mcroberts1876.com"))
             {
                 MessageBox.Show("Please enter your company email address and try again.", "Alert");
             }
