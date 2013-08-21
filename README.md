@@ -38,11 +38,11 @@ Versions
 + Created August 5, 2013
 + Changed usernames to company emails
 + Added better reservation filtering (WIP)
-+ Added username saving
 + Added dropdown boxes for rooms
 + Added archiving
-+ Added email checking when registering
++ Added email verification when registering
 + Added multiple items to reserve
 + Checks if reservation exists before adding a new one
-+ Emboldens reservations that are currently ongoing (Bug)
++ Emboldens reservations that are currently ongoing
++ Added sessions; log back in without re-entering information
 
