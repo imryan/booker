@@ -139,7 +139,6 @@ namespace Booker
         private bool isBetweenTimes(DateTime datetime, TimeSpan start, TimeSpan end)
         {
             TimeSpan now = datetime.TimeOfDay;
-            //MessageBox.Show("" + start);
 
             if (start < end)
             {
@@ -244,8 +243,17 @@ namespace Booker
 
         private void logoutButton_Click(object sender, EventArgs e)
         {
-            ParseUser.LogOut();
-            Environment.Exit(0);
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to log out?", "Alert", MessageBoxButtons.YesNo);
+
+            if (dialogResult == DialogResult.Yes)
+            {
+                ParseUser.LogOut();
+                Environment.Exit(0);
+            }
+            else
+            {
+                return;
+            }
         }
     }
 }

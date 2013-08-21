@@ -29,6 +29,7 @@ namespace Booker
         private void checkIfExists(string[] array)
         {
             int count = Program.booker.listView.Items.Count;
+            string errorString = "There is already a reservation for your selection.\nFor:\t" + array[0] + ".\nOn:\t" + array[1] + "." + "\nFrom:\t" + array[2] + ".";
             bool hasShown = false;
             canAdd = true;
 
@@ -39,9 +40,32 @@ namespace Booker
                     currentItem.SubItems[0].ToString().Contains(array[0]) &&
                     currentItem.SubItems[2].ToString().Contains(array[2]) && !hasShown)
                 {
-                    MessageBox.Show("There is already a reservation for your selection.\nFor:\t" + array[0] + ".\nOn:\t" + array[1] + "." + "\nFrom:\t" + array[2] + ".", "Alert");
+                    DialogResult dialogResult = MessageBox.Show(errorString + "\n\nAdd anyway?", "Alert", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        canAdd = true;
+                    }
+                    else
+                    {
+                        canAdd = false;
+                    }
+
                     hasShown = true;
-                    canAdd = false;
+                }
+                else if (currentItem.SubItems[0].ToString().Contains(array[0]) &&
+                        currentItem.SubItems[1].ToString().Contains(array[1]) && !hasShown)
+                {
+                    DialogResult dialogResult = MessageBox.Show(errorString + "\n\nAdd anyway?", "Alert", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        canAdd = true;
+                    }
+                    else
+                    {
+                        canAdd = false;
+                    }
+
+                    hasShown = true;
                 }
             }
         }
