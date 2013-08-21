@@ -35,8 +35,6 @@
             this.connectButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.passwordLogin = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.usernameLogin = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.registerButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -44,6 +42,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.usernameCreate = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.usernameLogin = new System.Windows.Forms.TextBox();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -62,12 +64,13 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label1);
+            this.tabPage1.Controls.Add(this.label6);
+            this.tabPage1.Controls.Add(this.usernameLogin);
             this.tabPage1.Controls.Add(this.forgotPassword);
             this.tabPage1.Controls.Add(this.connectButton);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.passwordLogin);
-            this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Controls.Add(this.usernameLogin);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -113,27 +116,11 @@
             this.passwordLogin.Name = "passwordLogin";
             this.passwordLogin.PasswordChar = '*';
             this.passwordLogin.Size = new System.Drawing.Size(228, 20);
-            this.passwordLogin.TabIndex = 2;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 5);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(135, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Username (Company email)";
-            // 
-            // usernameLogin
-            // 
-            this.usernameLogin.AcceptsTab = true;
-            this.usernameLogin.Location = new System.Drawing.Point(6, 22);
-            this.usernameLogin.Name = "usernameLogin";
-            this.usernameLogin.Size = new System.Drawing.Size(228, 20);
-            this.usernameLogin.TabIndex = 0;
+            this.passwordLogin.TabIndex = 7;
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.label5);
             this.tabPage2.Controls.Add(this.registerButton);
             this.tabPage2.Controls.Add(this.label3);
             this.tabPage2.Controls.Add(this.passwordCreate);
@@ -189,7 +176,7 @@
             this.usernameCreate.AcceptsTab = true;
             this.usernameCreate.Location = new System.Drawing.Point(6, 22);
             this.usernameCreate.Name = "usernameCreate";
-            this.usernameCreate.Size = new System.Drawing.Size(228, 20);
+            this.usernameCreate.Size = new System.Drawing.Size(120, 20);
             this.usernameCreate.TabIndex = 5;
             // 
             // pictureBox1
@@ -201,6 +188,41 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(129, 25);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(111, 13);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "@mcroberts1876.com";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(129, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(111, 13);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "@mcroberts1876.com";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 5);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(135, 13);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "Username (Company email)";
+            // 
+            // usernameLogin
+            // 
+            this.usernameLogin.AcceptsTab = true;
+            this.usernameLogin.Location = new System.Drawing.Point(6, 22);
+            this.usernameLogin.Name = "usernameLogin";
+            this.usernameLogin.Size = new System.Drawing.Size(120, 20);
+            this.usernameLogin.TabIndex = 5;
             // 
             // mainForm
             // 
@@ -232,10 +254,8 @@
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TextBox usernameLogin;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox passwordLogin;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button connectButton;
         private System.Windows.Forms.Button registerButton;
         private System.Windows.Forms.Label label3;
@@ -244,6 +264,10 @@
         private System.Windows.Forms.TextBox usernameCreate;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.LinkLabel forgotPassword;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox usernameLogin;
     }
 }
 

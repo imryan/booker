@@ -42,15 +42,11 @@ namespace Booker
             }
             else
             {
-                if (!usernameCreate.Text.Contains("@mcroberts1876.com"))
-                {
-                    MessageBox.Show("Your username should be your company-issued email.", "Alert");
-                }
-                else
-                {
+                string username = usernameCreate.Text + "@mcroberts1876.com";
+
                     var user = new ParseUser()
                     {
-                        Username = usernameCreate.Text,
+                        Username = username,
                         Password = passwordCreate.Text
                     };
 
@@ -61,7 +57,7 @@ namespace Booker
                         MessageBox.Show("User sucessfully created.", "Alert");
 
                         // Login the new user
-                        await ParseUser.LogInAsync(usernameCreate.Text, passwordCreate.Text);
+                        await ParseUser.LogInAsync(username, passwordCreate.Text);
                         MessageBox.Show("Successfully logged in.", "Alert");
 
                         Hide();
@@ -77,7 +73,6 @@ namespace Booker
                     }
                 }
             }
-        }
 
         private async void connectButton_Click(object sender, EventArgs e)
         {
@@ -102,8 +97,10 @@ namespace Booker
                 {
                     try
                     {
+                        string username = usernameLogin.Text + "@mcroberts1876.com";
+
                         connectButton.Enabled = false;
-                        await ParseUser.LogInAsync(usernameLogin.Text, passwordLogin.Text);
+                        await ParseUser.LogInAsync(username, passwordLogin.Text);
                         MessageBox.Show("Successfully logged in.", "Alert");
 
                         Hide();
