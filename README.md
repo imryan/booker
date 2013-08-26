@@ -37,7 +37,7 @@ Versions
 ####Version 1.0.3
 + Created August 5, 2013
 + Changed usernames to company emails
-+ Added better reservation filtering (WIP)
++ Added better reservation filtering
 + Added dropdown boxes for rooms
 + Added archiving
 + Added email verification when registering
@@ -45,4 +45,6 @@ Versions
 + Checks if reservation exists before adding a new one
 + Emboldens reservations that are currently ongoing
 + Added sessions; log back in without re-entering information
++ Fixed a lot of things
++ Beta release
 
