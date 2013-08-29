@@ -184,7 +184,7 @@ namespace Booker
 
         private void typeSelector_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (typeSelector.SelectedItem.ToString() == "Room")
+            if (typeSelector.SelectedItem.ToString() == "Room/Item")
             {
                 roomSelector.Visible = true;
                 tag = 0;
