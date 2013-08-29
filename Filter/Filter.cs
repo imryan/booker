@@ -13,23 +13,35 @@ namespace Booker
         {
             InitializeComponent();
             loadRoomsAndItems();
+            loadAllUsers();
 
             typeSelector.Items.Add("Room/Item");
             typeSelector.Items.Add("Date");
             typeSelector.Items.Add("Time");
             typeSelector.Items.Add("Person");
-             
         }
 
         private async void loadRoomsAndItems()
         {
-            var query = ParseObject.GetQuery("Items").OrderBy("date");
+            var query = ParseObject.GetQuery("Items");
             IEnumerable<ParseObject> results = await query.FindAsync();
 
             foreach (var obj in results)
             {
                 string name = obj.Get<string>("name");
                 roomSelector.Items.Add(name);
+            }
+        }
+
+        private async void loadAllUsers()
+        {
+            var query = ParseObject.GetQuery("Userdata");
+            IEnumerable<ParseObject> results = await query.FindAsync();
+
+            foreach (var obj in results)
+            {
+                string username = obj.Get<string>("username");
+                personPicker.Items.Add(username);
             }
         }
 
@@ -216,21 +228,6 @@ namespace Booker
 
             if (typeSelector.SelectedItem.ToString() == "Person")
             {
-                int count = Program.booker.listView.Items.Count;
-                string users = null;
-                ListViewItem currentItem = null;
-
-                for (int i = 0; i < count; i++)
-                {
-                    currentItem = Program.booker.listView.Items[i];
-
-                    users = currentItem.SubItems[3].ToString();
-                    users = users.Remove(0, 18);
-                    users = users.Remove(users.Length - 1);
-
-                    personPicker.Items.Add(users);
-                }
-
                 personPicker.Visible = true;
                 tag = 3;
             }

@@ -17,7 +17,7 @@ namespace Booker
 
         private async void loadRoomsAndItems()
         {
-            var query = ParseObject.GetQuery("Items").OrderBy("date");
+            var query = ParseObject.GetQuery("Items");
             IEnumerable<ParseObject> results = await query.FindAsync();
 
             foreach (var obj in results)

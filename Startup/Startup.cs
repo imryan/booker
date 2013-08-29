@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Collections.Generic;
 using Parse;
 
 namespace Booker
@@ -46,6 +47,11 @@ namespace Booker
                         registerButton.Enabled = false;
                         await user.SignUpAsync();
                         MessageBox.Show("User sucessfully created.", "Alert");
+
+                        // Create the extra user class in the database to load data from later
+                        ParseObject userdata = new ParseObject("Userdata");
+                        userdata["username"] = username;
+                        await userdata.SaveAsync();
 
                         // Login the new user
                         await ParseUser.LogInAsync(username, passwordCreate.Text);
