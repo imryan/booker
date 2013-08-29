@@ -55,7 +55,7 @@ namespace Booker
 
         private void filterRoom(object sender, EventArgs e)
         {
-            string room = roomSelector.SelectedIndex.ToString();
+            string room = roomSelector.SelectedItem.ToString();
             int count = Program.booker.listView.Items.Count;
             ListViewItem searchItem = null;
             int index = 0;
