@@ -48,3 +48,8 @@ Versions
 + Fixed a lot of things
 + Beta release
 
+###Version 1.0.4
++ Created August 29, 2013
++ Now loads item/room data from the database
++ Some small fixes
+
