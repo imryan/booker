@@ -162,18 +162,6 @@ namespace Booker
 
         private void deleteBooking_Click(object sender, EventArgs e)
         {
-            /*            
-            var query = ParseObject.GetQuery("Booking")
-                                   .OrderBy("date");
-
-            IEnumerable<ParseObject> results = await query.FindAsync();
-             * 
-            foreach (ListViewItem item in listView.SelectedItems)
-            {
-                listView.Items.Remove(item);
-            }
-            */
-
             MessageBox.Show("Item deletion is still being developed. Contact Ryan for reservation removal.", "Alert");
             System.Diagnostics.Process process = new System.Diagnostics.Process();
             process.StartInfo.FileName = "mailto:ryan.cohen@mcroberts1876.com?subject=Booker Reservation Deletion";

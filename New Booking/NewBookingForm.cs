@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using Parse;
+using System.Collections.Generic;
 
 namespace Booker
 {
@@ -11,18 +12,25 @@ namespace Booker
         public newBookingForm()
         {
             InitializeComponent();
+            loadRoomsAndItems();
+        }
 
-            roomField.Items.Add("Conference Room");
-            roomField.Items.Add("Upstairs Conference Room");
-            roomField.Items.Add("Sales Demo Unit 1");
-            roomField.Items.Add("Sales Demo Unit 2");
-            roomField.Items.Add("Other");
+        private async void loadRoomsAndItems()
+        {
+            var query = ParseObject.GetQuery("Items").OrderBy("date");
+            IEnumerable<ParseObject> results = await query.FindAsync();
+
+            foreach (var obj in results)
+            {
+                string name = obj.Get<string>("name");
+                roomField.Items.Add(name);
+            }
         }
 
         private void checkIfExists(string[] array)
         {
             int count = Program.booker.listView.Items.Count;
-            string errorString = "There is already a reservation for your selection.\nFor:\t" + array[0] + ".\nOn:\t" + array[1] + "." + "\nFrom:\t" + array[2] + ".";
+            string errorString = "There is already a reservation for your selection.\n\nFor:\t" + array[0] + ".\nOn:\t" + array[1] + "." + "\nFrom:\t" + array[2] + ".";
             bool hasShown = false;
             canAdd = true;
 

@@ -12,18 +12,25 @@ namespace Booker
         public Filter()
         {
             InitializeComponent();
-            
-            roomSelector.Items.Add("Conference Room");
-            roomSelector.Items.Add("Upstairs Conference Room");
-            roomSelector.Items.Add("Sales Demo Unit 1");
-            roomSelector.Items.Add("Sales Demo Unit 2");
-            roomSelector.Items.Add("Other");
+            loadRoomsAndItems();
 
             typeSelector.Items.Add("Room/Item");
             typeSelector.Items.Add("Date");
             typeSelector.Items.Add("Time");
             typeSelector.Items.Add("Person");
              
+        }
+
+        private async void loadRoomsAndItems()
+        {
+            var query = ParseObject.GetQuery("Items").OrderBy("date");
+            IEnumerable<ParseObject> results = await query.FindAsync();
+
+            foreach (var obj in results)
+            {
+                string name = obj.Get<string>("name");
+                roomSelector.Items.Add(name);
+            }
         }
 
         private void Filter_Load(object sender, EventArgs e)
