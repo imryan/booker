@@ -35,11 +35,12 @@ namespace Booker
             else
             {
                 string username = usernameCreate.Text + "@mcroberts1876.com";
+                string password = passwordCreate.Text;
 
                     var user = new ParseUser()
                     {
                         Username = username,
-                        Password = passwordCreate.Text
+                        Password = password
                     };
 
                     try
@@ -130,8 +131,25 @@ namespace Booker
             }
             else
             {
-                await ParseUser.RequestPasswordResetAsync(email);
-                MessageBox.Show("Password reset instructions sent to: " + email + "." + "Alert");
+                // Check if the email address is registered in the database first
+                var query = ParseObject.GetQuery("Userdata");
+                IEnumerable<ParseObject> results = await query.FindAsync();
+
+                foreach (var obj in results)
+                {
+                    string userdata = obj.Get<string>("username");
+
+                    if (userdata.Equals(email))
+                    {
+                        await ParseUser.RequestPasswordResetAsync(email);
+                        MessageBox.Show("Password reset instructions sent to: " + email + ".", "Alert");
+                        return;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Email doesn't exist.");
+                    }
+                }
             }
         }
     }

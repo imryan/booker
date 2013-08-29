@@ -13,7 +13,7 @@ namespace Booker
         public Booker()
         {
             InitializeComponent();
-
+            
             newBooking.Click += new EventHandler(newBooking_Click);
             deleteBooking.Click += new EventHandler(deleteBooking_Click);
             aboutButton.Click += new EventHandler(aboutButton_Click);
@@ -78,7 +78,7 @@ namespace Booker
 
                     string endTime = currentItem.SubItems[2].ToString().Remove(0, 28);
                     endTime = endTime.Remove(endTime.Length - 1);
-
+                    
                     DateTime startDt = stringToDate(startTime);
                     DateTime endDt = stringToDate(endTime);
 

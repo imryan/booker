@@ -26,7 +26,7 @@
     <TargetCulture>en</TargetCulture>
     <ProductName>Booker</ProductName>
     <PublisherName>McRoberts Security Technologies</PublisherName>
-    <ApplicationRevision>14</ApplicationRevision>
+    <ApplicationRevision>15</ApplicationRevision>
     <ApplicationVersion>1.0.3.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
