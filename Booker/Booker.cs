@@ -152,6 +152,7 @@ namespace Booker
                 this.listView.Invoke(new MyDelegate(updatingListView), new object[] { array });
 
             } else {
+
                 ListViewItem lvi = new ListViewItem(array[0]);
                 lvi.SubItems.Add(array[1]);
                 lvi.SubItems.Add(array[2]);
@@ -237,11 +238,6 @@ namespace Booker
             {
                 return;
             }
-        }
-
-        private void searchBox_TextChanged(object sender, EventArgs e)
-        {
-            MessageBox.Show("#Changed.......:)");
         }
     }
 }

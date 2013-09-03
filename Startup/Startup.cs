@@ -46,6 +46,9 @@ namespace Booker
                     try
                     {
                         registerButton.Enabled = false;
+                        usernameCreate.Enabled = false;
+                        passwordCreate.Enabled = false;
+
                         await user.SignUpAsync();
                         MessageBox.Show("User sucessfully created.", "Alert");
 
@@ -67,7 +70,10 @@ namespace Booker
                         Console.WriteLine(r.Message);
 
                         MessageBox.Show("Username already in use!", "Alert");
+
                         registerButton.Enabled = true;
+                        usernameCreate.Enabled = true;
+                        passwordCreate.Enabled = true;
                     }
                 }
             }
@@ -98,6 +104,9 @@ namespace Booker
                         string username = usernameLogin.Text + "@mcroberts1876.com";
 
                         connectButton.Enabled = false;
+                        usernameLogin.Enabled = false;
+                        passwordLogin.Enabled = false;
+
                         await ParseUser.LogInAsync(username, passwordLogin.Text);
                         MessageBox.Show("Successfully logged in.", "Alert");
 
@@ -111,7 +120,10 @@ namespace Booker
                         Console.WriteLine(l.Message);
 
                         MessageBox.Show("Invalid credentials, try again.", "Alert");
+
                         connectButton.Enabled = true;
+                        usernameLogin.Enabled = true;
+                        passwordLogin.Enabled = true;
                     }
                 }
             }
