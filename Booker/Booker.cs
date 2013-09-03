@@ -28,6 +28,7 @@ namespace Booker
 
         private async void Booker_Load(object sender, EventArgs e)
         {
+                versionLabel.Text = "Booker v1.0.4";
                 loadingBox.Visible = true;
 
                 Font ft = new Font(listView.Font.Name, 10);

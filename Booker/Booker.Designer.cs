@@ -44,7 +44,7 @@
             this.timeHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.personHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.listView = new System.Windows.Forms.ListView();
-            this.label1 = new System.Windows.Forms.Label();
+            this.versionLabel = new System.Windows.Forms.Label();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.loadingBox)).BeginInit();
             this.SuspendLayout();
@@ -167,23 +167,23 @@
             this.listView.UseCompatibleStateImageBehavior = false;
             this.listView.View = System.Windows.Forms.View.Details;
             // 
-            // label1
+            // versionLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.SystemColors.Control;
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label1.Location = new System.Drawing.Point(636, 7);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 13);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Booker v1.0.3";
+            this.versionLabel.AutoSize = true;
+            this.versionLabel.BackColor = System.Drawing.SystemColors.Control;
+            this.versionLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.versionLabel.Location = new System.Drawing.Point(636, 7);
+            this.versionLabel.Name = "versionLabel";
+            this.versionLabel.Size = new System.Drawing.Size(74, 13);
+            this.versionLabel.TabIndex = 8;
+            this.versionLabel.Text = "Booker v1.0.3";
             // 
             // Booker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(722, 504);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.versionLabel);
             this.Controls.Add(this.loadingBox);
             this.Controls.Add(this.listView);
             this.Controls.Add(this.menuStrip);
@@ -221,7 +221,7 @@
         private System.Windows.Forms.ColumnHeader personHeader;
         public System.Windows.Forms.ListView listView;
         private System.Windows.Forms.ToolStripMenuItem logoutButton;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label versionLabel;
 
     }
 }
